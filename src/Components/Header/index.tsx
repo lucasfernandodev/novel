@@ -1,3 +1,4 @@
+import { Navigation } from '../Navigation';
 import style from './style.module.css';
 
 export const Header = () => {
@@ -10,6 +11,7 @@ export const Header = () => {
         <input type="text" className={style.search} placeholder='Buscar por título, autor, editora, gênero...' />
       </form>
       <div className={style.avatar}></div>
+      <Navigation />
     </header>
   )
 }
