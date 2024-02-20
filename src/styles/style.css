@@ -1,0 +1,25 @@
+*,*::before,*:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{ 
+  font-size: 62.5%;
+}
+
+body{
+  font-optical-sizing: auto;
+  line-height: 1;
+  font-size: 1.6rem;
+  font-family: var(--font-default);
+  font-weight: 400;
+  background-color: var(--body-bg);
+  font-optical-sizing: auto;
+  color: var(--body-color);
+}
+
+input, button{
+  font-family: var(--font-default);
+  color: var(--body-color);
+}
