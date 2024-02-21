@@ -1,0 +1,43 @@
+.grid{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid__book{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+  text-decoration: none;
+  width: 105px;
+  margin-bottom: 24px;
+}
+
+.grid__book .container{
+  width: 105px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black-400);
+  border-radius: 6px;
+}
+
+
+.grid__book .title{
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 140%;
+}

@@ -1,0 +1,7 @@
+.layout{
+  gap: 64px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 82px;
+  flex-wrap: wrap;
+}

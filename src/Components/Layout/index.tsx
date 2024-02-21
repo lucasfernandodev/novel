@@ -9,9 +9,9 @@ interface ILayoutProps extends React.HTMLAttributes<HTMLDivElement>{
 
 export const Layout: React.FC<ILayoutProps> = ({ children, ...rest }) => {
   return (
-    <div {...rest} className={[style.layout, rest.className].join(" ")}>
+    <div className={style.layout} >
       <Header />
-      <div className={style.content}>
+      <div {...rest} className={[style.content, rest.className].join(" ")} >
         {children}
       </div>
       <Footer />

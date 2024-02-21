@@ -1,0 +1,55 @@
+.grid{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: min(100%, 320px);
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.grid__book{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  text-decoration: none;
+  width: 100%;
+  align-items: center;
+  padding:  16px;
+}
+
+.grid__book .container{
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black-400);
+  border-radius: 50%;
+}
+
+.grid__book .info{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.grid__book .title{
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 140%;
+}
+
+.grid__book  .author,
+.grid__book .rating{
+  font-size: 1.4rem;
+  color: var(--gray-400)
+}
