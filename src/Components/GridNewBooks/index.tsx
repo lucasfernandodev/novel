@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
-import { Link } from 'react-router-dom';
 import { generateSlug } from '../../utils/generateSlug';
+import { Link } from '../../Layout/Link';
 
 interface INovels{
   id: string,

@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
 import style from './style.module.css';
 import { IconBooks, IconCompass, IconConfig, IconServer, IconUpdate } from '../../assets/icons';
 import React from 'react';
+import { Link } from '../../Layout/Link';
 
 interface IPropsNavigation {
   closeMenu: (value: boolean) => void

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import { IconOrderByOld, IconOrderByRecent } from '../../assets/icons';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { usePagination } from '../../Hook/usePagination';
+import { Link } from '../../Layout/Link';
 
 interface IChapter {
   title: string,

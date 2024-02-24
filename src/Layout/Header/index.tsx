@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigation } from '../../Components/Navigation';
 import style from './style.module.css';
-import { Link } from 'react-router-dom';
+import { Link } from '../Link';
 
 export const Header = () => {
   const [isOpen,setIsOpen] = useState(false);
