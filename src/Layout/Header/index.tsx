@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigation } from '../Navigation';
+import { Navigation } from '../../Components/Navigation';
 import style from './style.module.css';
 import { Link } from 'react-router-dom';
 

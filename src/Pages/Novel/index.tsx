@@ -1,4 +1,4 @@
-import { Layout } from '../../Components/Layout';
+import { Layout } from '../../Layout/Layout';
 import { Thumbnail } from '../../Components/Thumbnail';
 import { IconFlag, IconInfo } from '../../assets/icons';
 import style from './style.module.css';
