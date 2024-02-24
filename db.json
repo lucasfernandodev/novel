@@ -1,4 +1,606 @@
 {
+  "chapters": [
+    {
+      "title": "Capítulo 1 - O Despertar da Aventura",
+      "url": "#",
+      "timeago": "publicado a 2h"
+    },
+    {
+      "title": "Capítulo 2 - Mistérios Sob a Luz da Lua",
+      "url": "#",
+      "timeago": "publicado a 4h"
+    },
+    {
+      "title": "Capítulo 3 - Alianças Inesperadas",
+      "url": "#",
+      "timeago": "publicado a 6h"
+    },
+    {
+      "title": "Capítulo 4 - O Segredo das Ruínas Antigas",
+      "url": "#",
+      "timeago": "publicado a 8h"
+    },
+    {
+      "title": "Capítulo 5 - Confronto no Vale Esquecido",
+      "url": "#",
+      "timeago": "publicado a 10h"
+    },
+    {
+      "title": "Capítulo 6 - Sussurros das Sombras",
+      "url": "#",
+      "timeago": "publicado a 12h"
+    },
+    {
+      "title": "Capítulo 7 - Luzes no Horizonte",
+      "url": "#",
+      "timeago": "publicado a 14h"
+    },
+    {
+      "title": "Capítulo 8 - O Poder da Verdade",
+      "url": "#",
+      "timeago": "publicado a 16h"
+    },
+    {
+      "title": "Capítulo 9 - Além das Montanhas da Desolação",
+      "url": "#",
+      "timeago": "publicado a 18h"
+    },
+    {
+      "title": "Capítulo 10 - O Último Guardião",
+      "url": "#",
+      "timeago": "publicado a 20h"
+    },
+    {
+      "title": "Capítulo 11 - Ecos de Tempestades Distantes",
+      "url": "#",
+      "timeago": "publicado a 22h"
+    },
+    {
+      "title": "Capítulo 12 - Entre as Cinzas do Passado",
+      "url": "#",
+      "timeago": "publicado a 24h"
+    },
+    {
+      "title": "Capítulo 13 - Sob a Sombra do Destino",
+      "url": "#",
+      "timeago": "publicado a 26h"
+    },
+    {
+      "title": "Capítulo 14 - Juramentos Quebrados",
+      "url": "#",
+      "timeago": "publicado a 28h"
+    },
+    {
+      "title": "Capítulo 15 - O Canto da Sereia",
+      "url": "#",
+      "timeago": "publicado a 30h"
+    },
+    {
+      "title": "Capítulo 16 - O Labirinto de Espelhos",
+      "url": "#",
+      "timeago": "publicado a 32h"
+    },
+    {
+      "title": "Capítulo 17 - Nas Garras da Fera",
+      "url": "#",
+      "timeago": "publicado a 34h"
+    },
+    {
+      "title": "Capítulo 18 - O Crepúsculo dos Deuses",
+      "url": "#",
+      "timeago": "publicado a 36h"
+    },
+    {
+      "title": "Capítulo 19 - A Chama Imortal",
+      "url": "#",
+      "timeago": "publicado a 38h"
+    },
+    {
+      "title": "Capítulo 20 - O Vórtice do Desconhecido",
+      "url": "#",
+      "timeago": "publicado a 40h"
+    },
+    {
+      "title": "Capítulo 21 - Asas da Liberdade",
+      "url": "#",
+      "timeago": "publicado a 42h"
+    },
+    {
+      "title": "Capítulo 22 - O Despertar do Leviatã",
+      "url": "#",
+      "timeago": "publicado a 44h"
+    },
+    {
+      "title": "Capítulo 23 - O Jardim de Gelo",
+      "url": "#",
+      "timeago": "publicado a 46h"
+    },
+    {
+      "title": "Capítulo 24 - Reflexos de Uma Memória Distante",
+      "url": "#",
+      "timeago": "publicado a 48h"
+    },
+    {
+      "title": "Capítulo 25 - O Eclipse das Sombras",
+      "url": "#",
+      "timeago": "publicado a 50h"
+    },
+    {
+      "title": "Capítulo 26 - O Fim das Ilusões",
+      "url": "#",
+      "timeago": "publicado a 52h"
+    },
+    {
+      "title": "Capítulo 27 - Corações de Ferro",
+      "url": "#",
+      "timeago": "publicado a 54h"
+    },
+    {
+      "title": "Capítulo 28 - O Sussurro dos Antigos",
+      "url": "#",
+      "timeago": "publicado a 56h"
+    },
+    {
+      "title": "Capítulo 29 - A Dança da Chama e do Gelo",
+      "url": "#",
+      "timeago": "publicado a 58h"
+    },
+    {
+      "title": "Capítulo 30 - O Último Ato de Rebelião",
+      "url": "#",
+      "timeago": "publicado a 60h"
+    },
+    {
+      "title": "Capítulo 31 - O Despertar das Lendas",
+      "url": "#",
+      "timeago": "publicado a 62h"
+    },
+    {
+      "title": "Capítulo 32 - No Véu da Escuridão",
+      "url": "#",
+      "timeago": "publicado a 64h"
+    },
+    {
+      "title": "Capítulo 33 - Entre as Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 66h"
+    },
+    {
+      "title": "Capítulo 34 - O Sopro do Destino",
+      "url": "#",
+      "timeago": "publicado a 68h"
+    },
+    {
+      "title": "Capítulo 35 - O Eco dos Deuses",
+      "url": "#",
+      "timeago": "publicado a 70h"
+    },
+    {
+      "title": "Capítulo 36 - Em Busca da Verdade",
+      "url": "#",
+      "timeago": "publicado a 72h"
+    },
+    {
+      "title": "Capítulo 37 - A Queda do Império",
+      "url": "#",
+      "timeago": "publicado a 74h"
+    },
+    {
+      "title": "Capítulo 38 - Nas Asas do Destino",
+      "url": "#",
+      "timeago": "publicado a 76h"
+    },
+    {
+      "title": "Capítulo 39 - A Fonte do Poder",
+      "url": "#",
+      "timeago": "publicado a 78h"
+    },
+    {
+      "title": "Capítulo 40 - Além dos Limites Conhecidos",
+      "url": "#",
+      "timeago": "publicado a 80h"
+    },
+    {
+      "title": "Capítulo 41 - O Caminho para a Liberdade",
+      "url": "#",
+      "timeago": "publicado a 82h"
+    },
+    {
+      "title": "Capítulo 42 - Sob o Manto Estrelado",
+      "url": "#",
+      "timeago": "publicado a 84h"
+    },
+    {
+      "title": "Capítulo 43 - As Areias do Tempo",
+      "url": "#",
+      "timeago": "publicado a 86h"
+    },
+    {
+      "title": "Capítulo 44 - O Suspiro do Ocaso",
+      "url": "#",
+      "timeago": "publicado a 88h"
+    },
+    {
+      "title": "Capítulo 45 - Entre os Ventos do Deserto",
+      "url": "#",
+      "timeago": "publicado a 90h"
+    },
+    {
+      "title": "Capítulo 46 - Além das Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 92h"
+    },
+    {
+      "title": "Capítulo 47 - O Despertar da Esperança",
+      "url": "#",
+      "timeago": "publicado a 94h"
+    },
+    {
+      "title": "Capítulo 48 - O Rugido do Dragão",
+      "url": "#",
+      "timeago": "publicado a 96h"
+    },
+    {
+      "title": "Capítulo 49 - O Silêncio da Tempestade",
+      "url": "#",
+      "timeago": "publicado a 98h"
+    },
+    {
+      "title": "Capítulo 50 - Sob a Sombra da Montanha Proibida",
+      "url": "#",
+      "timeago": "publicado a 100h"
+    },
+    {
+      "title": "Capítulo 51 - O Legado Perdido",
+      "url": "#",
+      "timeago": "publicado a 102h"
+    },
+    {
+      "title": "Capítulo 52 - A Floresta dos Espíritos",
+      "url": "#",
+      "timeago": "publicado a 104h"
+    },
+    {
+      "title": "Capítulo 53 - A Canção do Deserto",
+      "url": "#",
+      "timeago": "publicado a 106h"
+    },
+    {
+      "title": "Capítulo 54 - O Despertar da Aurora",
+      "url": "#",
+      "timeago": "publicado a 108h"
+    },
+    {
+      "title": "Capítulo 55 - Nas Asas da Tempestade",
+      "url": "#",
+      "timeago": "publicado a 110h"
+    },
+    {
+      "title": "Capítulo 56 - Sob a Luz do Luar",
+      "url": "#",
+      "timeago": "publicado a 112h"
+    },
+    {
+      "title": "Capítulo 57 - O Chamado do Abismo",
+      "url": "#",
+      "timeago": "publicado a 114h"
+    },
+    {
+      "title": "Capítulo 58 - No Coração da Floresta",
+      "url": "#",
+      "timeago": "publicado a 116h"
+    },
+    {
+      "title": "Capítulo 59 - O Canto do Crepúsculo",
+      "url": "#",
+      "timeago": "publicado a 118h"
+    },
+    {
+      "title": "Capítulo 60 - Através do Espelho",
+      "url": "#",
+      "timeago": "publicado a 120h"
+    },
+    {
+      "title": "Capítulo 61 - A Dança dos Espíritos",
+      "url": "#",
+      "timeago": "publicado a 122h"
+    },
+    {
+      "title": "Capítulo 62 - Sob o Manto Estrelado",
+      "url": "#",
+      "timeago": "publicado a 124h"
+    },
+    {
+      "title": "Capítulo 63 - As Areias do Tempo",
+      "url": "#",
+      "timeago": "publicado a 126h"
+    },
+    {
+      "title": "Capítulo 64 - O Suspiro do Ocaso",
+      "url": "#",
+      "timeago": "publicado a 128h"
+    },
+    {
+      "title": "Capítulo 65 - Entre os Ventos do Deserto",
+      "url": "#",
+      "timeago": "publicado a 130h"
+    },
+    {
+      "title": "Capítulo 66 - Além das Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 132h"
+    },
+    {
+      "title": "Capítulo 67 - O Despertar da Esperança",
+      "url": "#",
+      "timeago": "publicado a 134h"
+    },
+    {
+      "title": "Capítulo 68 - O Rugido do Dragão",
+      "url": "#",
+      "timeago": "publicado a 136h"
+    },
+    {
+      "title": "Capítulo 69 - O Silêncio da Tempestade",
+      "url": "#",
+      "timeago": "publicado a 138h"
+    },
+    {
+      "title": "Capítulo 70 - Sob a Sombra da Montanha Proibida",
+      "url": "#",
+      "timeago": "publicado a 140h"
+    },
+    {
+      "title": "Capítulo 71 - O Despertar da Floresta",
+      "url": "#",
+      "timeago": "publicado a 142h"
+    },
+    {
+      "title": "Capítulo 72 - Sob a Luz da Lua Cheia",
+      "url": "#",
+      "timeago": "publicado a 144h"
+    },
+    {
+      "title": "Capítulo 73 - O Mistério do Abismo",
+      "url": "#",
+      "timeago": "publicado a 146h"
+    },
+    {
+      "title": "Capítulo 74 - A Queda do Império",
+      "url": "#",
+      "timeago": "publicado a 148h"
+    },
+    {
+      "title": "Capítulo 75 - Entre as Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 150h"
+    },
+    {
+      "title": "Capítulo 76 - Nas Asas do Dragão",
+      "url": "#",
+      "timeago": "publicado a 152h"
+    },
+    {
+      "title": "Capítulo 77 - O Sussurro da Floresta",
+      "url": "#",
+      "timeago": "publicado a 154h"
+    },
+    {
+      "title": "Capítulo 78 - O Chamado das Profundezas",
+      "url": "#",
+      "timeago": "publicado a 156h"
+    },
+    {
+      "title": "Capítulo 79 - O Lamento do Vento",
+      "url": "#",
+      "timeago": "publicado a 158h"
+    },
+    {
+      "title": "Capítulo 80 - A Dança das Sombras",
+      "url": "#",
+      "timeago": "publicado a 160h"
+    },
+    {
+      "title": "Capítulo 81 - O Despertar da Floresta",
+      "url": "#",
+      "timeago": "publicado a 162h"
+    },
+    {
+      "title": "Capítulo 82 - Sob a Luz da Lua Cheia",
+      "url": "#",
+      "timeago": "publicado a 164h"
+    },
+    {
+      "title": "Capítulo 83 - O Mistério do Abismo",
+      "url": "#",
+      "timeago": "publicado a 166h"
+    },
+    {
+      "title": "Capítulo 84 - A Queda do Império",
+      "url": "#",
+      "timeago": "publicado a 168h"
+    },
+    {
+      "title": "Capítulo 85 - Entre as Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 170h"
+    },
+    {
+      "title": "Capítulo 86 - Nas Asas do Dragão",
+      "url": "#",
+      "timeago": "publicado a 172h"
+    },
+    {
+      "title": "Capítulo 87 - O Sussurro da Floresta",
+      "url": "#",
+      "timeago": "publicado a 174h"
+    },
+    {
+      "title": "Capítulo 88 - O Chamado das Profundezas",
+      "url": "#",
+      "timeago": "publicado a 176h"
+    },
+    {
+      "title": "Capítulo 89 - O Lamento do Vento",
+      "url": "#",
+      "timeago": "publicado a 178h"
+    },
+    {
+      "title": "Capítulo 90 - A Dança das Sombras",
+      "url": "#",
+      "timeago": "publicado a 180h"
+    },
+    {
+      "title": "Capítulo 91 - O Despertar da Floresta",
+      "url": "#",
+      "timeago": "publicado a 182h"
+    },
+    {
+      "title": "Capítulo 92 - Sob a Luz da Lua Cheia",
+      "url": "#",
+      "timeago": "publicado a 184h"
+    },
+    {
+      "title": "Capítulo 93 - O Mistério do Abismo",
+      "url": "#",
+      "timeago": "publicado a 186h"
+    },
+    {
+      "title": "Capítulo 94 - A Queda do Império",
+      "url": "#",
+      "timeago": "publicado a 188h"
+    },
+    {
+      "title": "Capítulo 95 - Entre as Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 190h"
+    },
+    {
+      "title": "Capítulo 96 - Nas Asas do Dragão",
+      "url": "#",
+      "timeago": "publicado a 192h"
+    },
+    {
+      "title": "Capítulo 97 - O Sussurro da Floresta",
+      "url": "#",
+      "timeago": "publicado a 194h"
+    },
+    {
+      "title": "Capítulo 98 - O Chamado das Profundezas",
+      "url": "#",
+      "timeago": "publicado a 196h"
+    },
+    {
+      "title": "Capítulo 99 - O Lamento do Vento",
+      "url": "#",
+      "timeago": "publicado a 198h"
+    },
+    {
+      "title": "Capítulo 100 - A Aurora da Eternidade",
+      "url": "#",
+      "timeago": "publicado a 200h"
+    },
+    {
+      "title": "Capítulo 101 - O Suspiro da Aurora",
+      "url": "#",
+      "timeago": "publicado a 202h"
+    },
+    {
+      "title": "Capítulo 102 - Nas Profundezas do Abismo",
+      "url": "#",
+      "timeago": "publicado a 204h"
+    },
+    {
+      "title": "Capítulo 103 - O Lamento do Vento",
+      "url": "#",
+      "timeago": "publicado a 206h"
+    },
+    {
+      "title": "Capítulo 104 - O Refúgio das Estrelas",
+      "url": "#",
+      "timeago": "publicado a 208h"
+    },
+    {
+      "title": "Capítulo 105 - A Ascensão do Desconhecido",
+      "url": "#",
+      "timeago": "publicado a 210h"
+    },
+    {
+      "title": "Capítulo 106 - O Canto da Serpente",
+      "url": "#",
+      "timeago": "publicado a 212h"
+    },
+    {
+      "title": "Capítulo 107 - Além das Fronteiras da Imaginação",
+      "url": "#",
+      "timeago": "publicado a 214h"
+    },
+    {
+      "title": "Capítulo 108 - A Dança dos Espíritos",
+      "url": "#",
+      "timeago": "publicado a 216h"
+    },
+    {
+      "title": "Capítulo 109 - Sob o Manto Estrelado",
+      "url": "#",
+      "timeago": "publicado a 218h"
+    },
+    {
+      "title": "Capítulo 110 - As Areias do Tempo",
+      "url": "#",
+      "timeago": "publicado a 220h"
+    },
+    {
+      "title": "Capítulo 111 - O Despertar da Floresta",
+      "url": "#",
+      "timeago": "publicado a 222h"
+    },
+    {
+      "title": "Capítulo 112 - Sob a Luz da Lua Cheia",
+      "url": "#",
+      "timeago": "publicado a 224h"
+    },
+    {
+      "title": "Capítulo 113 - O Mistério do Abismo",
+      "url": "#",
+      "timeago": "publicado a 226h"
+    },
+    {
+      "title": "Capítulo 114 - A Queda do Império",
+      "url": "#",
+      "timeago": "publicado a 228h"
+    },
+    {
+      "title": "Capítulo 115 - Entre as Estrelas Cadentes",
+      "url": "#",
+      "timeago": "publicado a 230h"
+    },
+    {
+      "title": "Capítulo 116 - Nas Asas do Dragão",
+      "url": "#",
+      "timeago": "publicado a 232h"
+    },
+    {
+      "title": "Capítulo 117 - O Sussurro da Floresta",
+      "url": "#",
+      "timeago": "publicado a 234h"
+    },
+    {
+      "title": "Capítulo 118 - O Chamado das Profundezas",
+      "url": "#",
+      "timeago": "publicado a 236h"
+    },
+    {
+      "title": "Capítulo 119 - O Lamento do Vento",
+      "url": "#",
+      "timeago": "publicado a 238h"
+    },
+    {
+      "title": "Capítulo 120 - A Dança das Sombras",
+      "url": "#",
+      "timeago": "publicado a 240h"
+    }
+  ],
   "novels": [
     {
       "title": "The Great Gatsby",
@@ -11,8 +613,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "9",
-      "genres": ["Fiction", "Classic"],
-      "tags": ["love", "wealth", "society"],
+      "genres": [
+        "Fiction",
+        "Classic"
+      ],
+      "tags": [
+        "love",
+        "wealth",
+        "society"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -26,8 +635,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "31",
-      "genres": ["Fiction", "Classic"],
-      "tags": ["prejudice", "racism", "family"],
+      "genres": [
+        "Fiction",
+        "Classic"
+      ],
+      "tags": [
+        "prejudice",
+        "racism",
+        "family"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -41,8 +657,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "23",
-      "genres": ["Fiction", "Dystopian"],
-      "tags": ["totalitarianism", "surveillance", "government control"],
+      "genres": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "tags": [
+        "totalitarianism",
+        "surveillance",
+        "government control"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -56,8 +679,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "61",
-      "genres": ["Fiction", "Romance"],
-      "tags": ["marriage", "society", "class"],
+      "genres": [
+        "Fiction",
+        "Romance"
+      ],
+      "tags": [
+        "marriage",
+        "society",
+        "class"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -71,8 +701,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "135",
-      "genres": ["Fiction", "Adventure"],
-      "tags": ["whaling", "obsession", "sea"],
+      "genres": [
+        "Fiction",
+        "Adventure"
+      ],
+      "tags": [
+        "whaling",
+        "obsession",
+        "sea"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -86,8 +723,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "26",
-      "genres": ["Fiction", "Coming-of-age"],
-      "tags": ["adolescence", "alienation", "identity"],
+      "genres": [
+        "Fiction",
+        "Coming-of-age"
+      ],
+      "tags": [
+        "adolescence",
+        "alienation",
+        "identity"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -101,8 +745,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "38",
-      "genres": ["Fiction", "Gothic"],
-      "tags": ["love", "identity", "society"],
+      "genres": [
+        "Fiction",
+        "Gothic"
+      ],
+      "tags": [
+        "love",
+        "identity",
+        "society"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -116,8 +767,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "19",
-      "genres": ["Fiction", "Fantasy"],
-      "tags": ["adventure", "quest", "dragons"],
+      "genres": [
+        "Fiction",
+        "Fantasy"
+      ],
+      "tags": [
+        "adventure",
+        "quest",
+        "dragons"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -131,8 +789,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "18",
-      "genres": ["Fiction", "Dystopian"],
-      "tags": ["technology", "control", "society"],
+      "genres": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "tags": [
+        "technology",
+        "control",
+        "society"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -146,8 +811,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "20",
-      "genres": ["Fiction", "Gothic"],
-      "tags": ["vanity", "morality", "beauty"],
+      "genres": [
+        "Fiction",
+        "Gothic"
+      ],
+      "tags": [
+        "vanity",
+        "morality",
+        "beauty"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -161,8 +833,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "34",
-      "genres": ["Fiction", "Gothic"],
-      "tags": ["love", "revenge", "tragedy"],
+      "genres": [
+        "Fiction",
+        "Gothic"
+      ],
+      "tags": [
+        "love",
+        "revenge",
+        "tragedy"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -176,8 +855,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "12",
-      "genres": ["Fiction", "Dystopian"],
-      "tags": ["isolation", "society", "survival"],
+      "genres": [
+        "Fiction",
+        "Dystopian"
+      ],
+      "tags": [
+        "isolation",
+        "society",
+        "survival"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -191,8 +877,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "30",
-      "genres": ["Fiction", "Historical"],
-      "tags": ["poverty", "migration", "family"],
+      "genres": [
+        "Fiction",
+        "Historical"
+      ],
+      "tags": [
+        "poverty",
+        "migration",
+        "family"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -206,8 +899,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "62",
-      "genres": ["Fiction", "Fantasy"],
-      "tags": ["adventure", "magic", "war"],
+      "genres": [
+        "Fiction",
+        "Fantasy"
+      ],
+      "tags": [
+        "adventure",
+        "magic",
+        "war"
+      ],
       "main_genre": "Fiction"
     },
     {
@@ -221,8 +921,15 @@
       "language": "English",
       "status": "Complete",
       "qtd_chapters": "24",
-      "genres": ["Fiction", "Gothic"],
-      "tags": ["science fiction", "creation", "morality"],
+      "genres": [
+        "Fiction",
+        "Gothic"
+      ],
+      "tags": [
+        "science fiction",
+        "creation",
+        "morality"
+      ],
       "main_genre": "Fiction"
     }
   ]

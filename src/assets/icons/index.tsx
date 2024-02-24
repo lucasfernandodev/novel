@@ -4,6 +4,12 @@ import IconCompass from './Compass';
 import IconServer from './Server';
 import IconConfig from './Config';
 import IconBook from './Book';
+import IconInfo from './Info';
+import IconHeart from './Heart';
+import IconArrowCompactDown from './ArrowCompactDown'
+import IconFlag from './Flag';
+import IconOrderByOld from './OrderByOld';
+import IconOrderByRecent from './OrderByRecent';
 
 export {
   IconBooks,
@@ -11,5 +17,11 @@ export {
   IconCompass,
   IconServer,
   IconConfig,
-  IconBook
+  IconBook,
+  IconInfo,
+  IconHeart,
+  IconArrowCompactDown,
+  IconFlag,
+  IconOrderByOld,
+  IconOrderByRecent
 }

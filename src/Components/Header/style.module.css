@@ -13,8 +13,8 @@
 }
 
 .brand{
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-items: center;
@@ -32,7 +32,7 @@
 
 .form__search .search{
   background-color: var(--black-600);
-  height: 36px;
+  height: 40px;
   border-radius: 24px;
   padding: 0px 16px;
   border: none;
@@ -48,8 +48,8 @@
 }
 
 .avatar{
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--black-400);
   flex-shrink: 0;

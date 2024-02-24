@@ -1,0 +1,23 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.container ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.container ul li{
+  display: flex;
+  gap: 8px
+}
+
+.container a{
+  color: var(--primary);
+}

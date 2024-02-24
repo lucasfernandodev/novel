@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';
-import { getNovels } from '../lib/getNovels';
+import { getNovels } from '../../lib/getNovels';
 
 interface INovels{
   id: string,

@@ -1,0 +1,75 @@
+
+.chaperList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+}
+
+.chaperList .header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.chaperList .header h3{
+  font-weight: 500;
+  font-size: 1.6rem;
+}
+
+.chaperList .header button{
+  border: none;
+  cursor: pointer;
+}
+
+.chaperList ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 1px solid var(--black-400);
+  border-bottom: 1px solid var(--black-400);
+  padding: 16px 0px;
+}
+
+.chaperList ul li{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chaperList ul li a{
+  color: currentColor;
+  text-decoration: none;
+  font-weight: 500;
+  width: 100%;
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chaperList ul li span{
+  font-size: 1.1rem;
+  color: var(--gray-400);
+}
+
+.chaperList .pagination {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chaperList .pagination span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--black-400);
+}
+
+.chaperList .pagination span[data-active="true"]{
+  background: var(--black-700);
+  border-color: var(--primary);
+}

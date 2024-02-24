@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Navigation } from '../Navigation';
 import style from './style.module.css';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   const [isOpen,setIsOpen] = useState(false);
@@ -11,9 +12,9 @@ export const Header = () => {
 
   return (
     <header className={style.header}>
-      <div className={style.brand}>
+      <Link to="/" className={style.brand}>
         <img src="/logo.svg" alt="logo" />
-      </div>
+      </Link>
       <form className={style.form__search}>
         <input type="text" className={style.search} placeholder='Buscar por título, autor, editora, gênero...' />
       </form>

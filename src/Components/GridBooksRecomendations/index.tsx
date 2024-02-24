@@ -4,7 +4,6 @@ import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
 import { Link } from 'react-router-dom';
-import { generateSlug } from '../../utils/generateSlug';
 
 interface INovels{
   id: string,
@@ -13,7 +12,7 @@ interface INovels{
   thumbnail: string
 }
 
-export const GridNewBooks = () => {
+export const GridBooksRecomendations = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -23,9 +22,17 @@ export const GridNewBooks = () => {
     })();
   }, [])
 
+  function generateSlug(str: string): string{
+    let slug = str;
+    slug = str.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+    slug = str.replace(/^\s+|\s+$/gm, '');
+    slug = str.replace(/\s+/g, '-');
+    return slug.toLocaleLowerCase();
+  }
+
   return (
     <section className={style.grid}>
-      <h2 className={style.title}>Novos Livros</h2>
+      <h2 className={style.title}>Recomendações</h2>
       <div className={style.wrapper}>
         {data.length
           > 0 && data.slice(0, 6).map((novel: INovels) => (

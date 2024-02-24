@@ -23,3 +23,6 @@ input, button{
   font-family: var(--font-default);
   color: var(--body-color);
 }
+button{
+  background: transparent;
+}

@@ -1,0 +1,47 @@
+
+.title{
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.sinopse {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.sinopse button {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 1.4rem;
+}
+
+.sinopse .content{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.sinopse .content p{
+  line-height: 180%;
+  display: none;
+  font-size: 1.6rem;
+}
+
+.sinopse .content p:nth-child(1),
+.sinopse .content p:nth-child(2){
+  display: inline-block
+}
+
+.sinopse .content[data-full="true"] p{
+  display: inline-block !important;
+}
+
+.sinopse .content:has(p:only-child) button{
+  display: none
+}

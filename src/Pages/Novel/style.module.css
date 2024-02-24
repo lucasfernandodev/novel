@@ -1,0 +1,132 @@
+.bookCover{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bookCover .thumbnail{
+  width: 110px;
+  height: 146.67px;
+  border-radius: 6px;
+  background-color: var(--black-400);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookCover .bookDetails{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.bookCover .bookDetails .row:first-child{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 10px;
+}
+
+
+.bookCover .bookDetails .row:first-child .mainFeatures{
+  background-color: var(--primary);
+  color: var(--black-900);
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.bookCover .bookDetails .row:first-child .author{
+  font-size: 1.3rem;
+  margin-top: 4px;
+  color: var(--primary);
+}
+
+
+
+
+.bookCover .bookDetails .row:last-child{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.bookCover .bookDetails .row:last-child div{
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.bookCover .bookDetails .row:last-child .divider{
+  display: flex;
+  margin: 0px 16px;
+  width: 2px;
+  height: 2px;
+  background: var(--gray-400);
+}
+
+.bookCover .bookDetails .row:last-child .year{
+  font-family: 'roboto';
+  font-size: 1.4rem;
+  line-height: 20px;
+}
+
+.bookCover .bookDetails .row:last-child span{
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--gray-400);
+}
+
+.bookCover .bookDetails .row:last-child button{
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-400);
+}
+
+.bookCover .bookDetails .row:last-child button svg{
+  width: 20px;
+  height: auto;
+}
+
+.modal{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.modal .report{
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal .report svg{
+  width: 18px;
+  height: auto;
+}
+
+
+
+
+
+.novel main{
+  margin: 32px 0px;
+}
+
+.novel main .about{
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
