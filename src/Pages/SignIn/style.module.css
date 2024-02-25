@@ -1,0 +1,104 @@
+.layout{
+  display: flex;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 64px 0px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+  max-width: 400px;
+}
+
+.form .title{
+ font-size: 3.2rem ;
+ font-weight: 500;
+}
+
+.form .group{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.form fieldset{
+  border: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px
+}
+
+.form .input{
+  width: 100%;
+  height: 54px;
+  border-radius: 4px;
+  background-color: var(--black-700);
+  border: none;
+  padding: 16px;
+  border: 1px solid transparent;
+}
+
+.form .input::placeholder{
+  font-weight: 1.3rem;
+  font-weight: 500;
+  color: var(--gray-400)
+}
+
+.form .input:focus{
+  outline: 1px solid var(--black-400);
+}
+
+.form .input[data-validade="false"]{
+  border-color: var(--red-400);
+  outline-color:  var(--red-400);
+}
+
+.form .errorMessage{
+  color: var(--red-400);
+  display: none
+}
+
+.form .input[data-validade="false"] + .errorMessage{
+  display: inline-block;
+}
+
+.form button{
+  width: 275px;
+  background-color: var(--primary);
+  color: var(--black-900);
+  height: 54px;
+  border-radius: 32px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 450ms linear;
+}
+
+.form button:hover{
+  transform: translateY(-4px)
+}
+
+.form p{
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.form p a{
+  color: var(--primary);
+  text-decoration: none;
+  transition: 450ms linear;
+}
+
+.form p a:hover{
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
