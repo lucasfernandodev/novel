@@ -35,7 +35,7 @@ export const SignUp = () => {
   return (
     <Layout className={style.layout}>
       <form ref={ref} className={style.form}>
-        <h1 className={style.title}>Criar Conta</h1>
+        <h1 className={style.title}>Criar Conta!</h1>
         <div className={style.group}>
           <fieldset>
             <input
@@ -71,7 +71,7 @@ export const SignUp = () => {
             <p className={style.errorMessage}>{errors.password && errors.password.msg}</p>
           </fieldset>
         </div>
-        <button onClick={handleSubmit} type="submit">Cadastrar</button>
+        <button onClick={handleSubmit} type="submit">Criar conta</button>
         <p>Já tem uma conta? <Link to="/signin">Fazer login</Link></p>
       </form>
     </Layout>

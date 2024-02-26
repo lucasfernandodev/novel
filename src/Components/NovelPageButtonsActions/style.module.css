@@ -14,7 +14,7 @@
 }
 
 .actions button{
-  background: linear-gradient(to right, var(--primary), #329E56);
+  background: var(--button-bg);
   height: 58px;
   border: 0px;
   border-radius: 32px;
