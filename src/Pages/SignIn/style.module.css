@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 64px 0px;
+  padding: 64px 16px;
 }
 
 .form{
@@ -17,14 +17,14 @@
 }
 
 .form .title{
- font-size: 3.2rem ;
- font-weight: 500;
+ font-size: 2.4rem ;
+ font-weight: bold;
 }
 
 .form .group{
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   width: 100%;
 }
 
@@ -71,13 +71,13 @@
 }
 
 .form button{
-  width: 275px;
-  background-color: var(--primary);
-  color: var(--black-900);
+  width: 300px;
+  background: var(--button-bg);
+  color: var(--white);
+  font-size: 1.6rem;
   height: 54px;
   border-radius: 32px;
   border: none;
-  text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
   transition: 450ms linear;

@@ -71,7 +71,7 @@
 }
 
 .form button{
-  width: 275px;
+  width: 300px;
   background: var(--button-bg);
   color: var(--white);
   height: 54px;

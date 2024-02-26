@@ -45,7 +45,7 @@ export const SignIn = () => {
     <Layout className={style.layout}>
 
       <form ref={ref} className={style.form}>
-        <h1 className={style.title}>Entrar</h1>
+        <h1 className={style.title}>Acessar sua conta</h1>
         <fieldset>
           <input
             onChange={handleChange}
@@ -69,7 +69,7 @@ export const SignIn = () => {
           <p className={style.errorMessage}>{errors.password && errors.password.msg}</p>
         </fieldset>
 
-        <button onClick={handleSubmit} type="submit">Login</button>
+        <button onClick={handleSubmit} type="submit">Entrar</button>
         <p>Ainda não tem uma conta? <Link to="/signup">Criar Conta</Link></p>
       </form>
     </Layout>
