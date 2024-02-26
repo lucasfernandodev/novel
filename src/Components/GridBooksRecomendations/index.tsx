@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
-import { Link } from '../../Layout/Link';
+import { Link } from '../../layout/Link';
 
 interface INovels{
   id: string,

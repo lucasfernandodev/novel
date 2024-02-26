@@ -1,7 +1,7 @@
 import { useContext, useRef } from 'react';
 import style from './style.module.css';
-import { Link } from '../../Layout/Link';
-import { Layout } from '../../Layout/Layout';
+import { Link } from '../../layout/Link';
+import { Layout } from '../../layout/Layout';
 import { useValidateForm } from '../../Hook/useValidateForm';
 import { AuthContext } from '../../context/Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -23,10 +23,9 @@ export const SignIn = () => {
       const password = ref.current.querySelector('input[name="password"]') as HTMLInputElement
 
       if (email && password) {
-        validate({ inputs: [email, password] })
-
-        // Não tem erro
-        if (Object.keys(errors).length === 0) {
+        const _errors = validate({ inputs: [email, password] })
+     
+        if (Object.keys(errors).length === 0 && Object.keys(_errors).length === 0) {
           const isLogged = await auth.signin(email.value, password.value);
           if (isLogged) {
             navigate('/')

@@ -1,7 +1,7 @@
 import style from './style.module.css';
 import { IconBooks, IconCompass, IconConfig, IconServer, IconUpdate } from '../../assets/icons';
 import React from 'react';
-import { Link } from '../../Layout/Link';
+import { Link } from '../../layout/Link';
 
 interface IPropsNavigation {
   closeMenu: (value: boolean) => void

@@ -2,7 +2,7 @@ import { IconOrderByOld, IconOrderByRecent } from '../../assets/icons';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { usePagination } from '../../Hook/usePagination';
-import { Link } from '../../Layout/Link';
+import { Link } from '../../layout/Link';
 
 interface IChapter {
   title: string,

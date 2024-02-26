@@ -1,6 +1,6 @@
 import { GridBooksRating } from '../../Components/GridBooksRating';
 import { GridNewBooks } from '../../Components/GridNewBooks';
-import { Layout } from '../../Layout/Layout';
+import { Layout } from '../../layout/Layout';
 
 import style from './style.module.css';
 

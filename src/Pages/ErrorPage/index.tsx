@@ -1,10 +1,8 @@
 import { useRouteError } from "react-router-dom";
-import { Layout } from "../../Layout/Layout";
+import { Layout } from "../../layout/Layout";
 
 export default function ErrorPage() {
   const error = useRouteError() as { statusText: string, message: string };
-  console.error(error);
-
   return (
     <Layout>
       <h1>Oops!</h1>

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { Layout } from '../../Layout/Layout';
-import { Link } from '../../Layout/Link';
+import { Layout } from '../../layout/Layout';
+import { Link } from '../../layout/Link';
 import style from './style.module.css';
 import { useValidateForm } from '../../Hook/useValidateForm';
 

@@ -31,7 +31,8 @@ export const useValidateForm = () => {
       }
     }
 
-    setErrors(prev => ({ ...prev, ..._error }))
+    setErrors(prev => ({ ...prev, ..._error }));
+    return _error;
   }
 
   return {

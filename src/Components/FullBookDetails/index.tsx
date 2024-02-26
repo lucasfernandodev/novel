@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import style from './style.module.css';
 import { INovel } from '../../types/novel';
-import { Link } from '../../Layout/Link';
+import { Link } from '../../layout/Link';
 
 
 interface IProps {
