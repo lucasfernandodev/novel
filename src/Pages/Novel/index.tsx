@@ -48,7 +48,7 @@ export const Novel = () => {
   }
 
   return (
-    <Layout className={style.novel}>
+    <Layout className={style.novel} isPrivate={true}>
       <header>
 
         <div className={style.bookCover}>

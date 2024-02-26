@@ -1,19 +1,42 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import style from './style.module.css';
 import { Footer } from "../Footer"
 import { Header } from "../Header"
+import { RequeireAuth } from "../RequireAuth";
 
-interface ILayoutProps extends React.HTMLAttributes<HTMLDivElement>{
-  children?: React.ReactNode
+interface ILayoutProps extends React.HTMLAttributes<HTMLDivElement> {
+  isPrivate?: boolean,
 }
 
-export const Layout: React.FC<ILayoutProps> = ({ children, ...rest }) => {
+const LoadInPrivate = ({ children, className, ...rest }:
+  { className?: string | undefined, children?: ReactNode }) => {
+  return (
+    <RequeireAuth>
+      <div {...rest} className={[style.content, className].join(" ")} >
+        {children}
+      </div>
+    </RequeireAuth>
+  )
+}
+
+const LoadInPublic = ({ children, className, ...rest }:
+  { className?: string | undefined, children?: ReactNode }) => {
+  return (
+    <div {...rest} className={[style.content, className].join(" ")} >
+      {children}
+    </div>
+  )
+}
+
+
+export const Layout: React.FC<ILayoutProps> = ({ isPrivate = false, children, ...rest }) => {
   return (
     <div className={style.layout} >
       <Header />
-      <div {...rest} className={[style.content, rest.className].join(" ")} >
-        {children}
-      </div>
+      {isPrivate === true ?
+        <LoadInPrivate {...rest}>{children}</LoadInPrivate> :
+        <LoadInPublic {...rest}>{children}</LoadInPublic>
+      }
       <Footer />
     </div>
   )

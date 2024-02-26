@@ -1,41 +1,26 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Layout } from '../../Layout/Layout';
 import { Link } from '../../Layout/Link';
 import style from './style.module.css';
-import { validates } from '../../utils/validates';
+import { useValidateForm } from '../../Hook/useValidateForm';
 
 export const SignUp = () => {
 
   const ref = useRef<HTMLFormElement>(null);
-  const [error, setError] = useState<Record<string, { msg: string }>>({})
 
+  const { validate, errors } = useValidateForm()
 
   function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
     if (ref.current) {
-      setError({})
-      const form = ref.current;
 
-      const inputs = form.querySelectorAll('input');
-      const _error = {} as Record<string, { msg: string }>
+      const inputs = ref.current.querySelectorAll('input');
+      validate({ inputs: Array.from(inputs) })
 
-      for (const input of inputs) {
-        const value = input.value;
-        const name = input.name;
-
-        const isValid = validates[name](value);
-
-        if (isValid.error === true) {
-          _error[name] = { msg: isValid.msg }
-        }
-      }
-
-      setError(prev => ({ ...prev, ..._error }))
-
-      // Não teme erro
-      if(Object.keys(error).length === 0){
-        // envia pro server validar
+      // Não tem erro
+      if (Object.keys(errors).length === 0) {
+        console.log("Não tem erro")
       }
     }
   }
@@ -43,18 +28,7 @@ export const SignUp = () => {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const input = e.currentTarget;
-    const value = input.value;
-    const name = input.name;
-
-    const isError = error[name];
-    if (isError) {
-      const isValid = validates[name](value);
-      if (isValid.error !== true) {
-        const _error = error;
-        delete _error[name];
-        setError(() => ({ ..._error }))
-      }
-    }
+    validate({ inputs: [input] })
   }
 
 
@@ -66,35 +40,35 @@ export const SignUp = () => {
           <fieldset>
             <input
               onChange={handleChange}
-              data-validade={error.username ? false : true}
+              data-validade={errors.username ? false : true}
               name="username"
               className={style.input}
               placeholder='Nome de usuário'
               type="text"
             />
-            <p className={style.errorMessage}>{error.username && error.username.msg}</p>
+            <p className={style.errorMessage}>{errors.username && errors.username.msg}</p>
           </fieldset>
           <fieldset>
             <input
               onChange={handleChange}
-              data-validade={error.email ? false : true}
+              data-validade={errors.email ? false : true}
               name="email"
               className={style.input}
               placeholder="Email"
               type="email"
             />
-            <p className={style.errorMessage}>{error.email && error.email.msg}</p>
+            <p className={style.errorMessage}>{errors.email && errors.email.msg}</p>
           </fieldset>
           <fieldset>
             <input
               onChange={handleChange}
               type="password"
-              data-validade={error.password ? false : true}
+              data-validade={errors.password ? false : true}
               name="password"
               className={style.input}
               placeholder="Senha"
             />
-            <p className={style.errorMessage}>{error.password && error.password.msg}</p>
+            <p className={style.errorMessage}>{errors.password && errors.password.msg}</p>
           </fieldset>
         </div>
         <button onClick={handleSubmit} type="submit">Cadastrar</button>
