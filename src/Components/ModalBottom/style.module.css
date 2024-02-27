@@ -19,6 +19,16 @@
   flex-direction: column;
   flex-wrap: wrap;
   gap: 24px;
+  animation: BottomUp 250ms linear forwards;
+}
+
+@keyframes BottomUp{
+  0%{
+    bottom: -100vw;
+  }
+  100%{
+    bottom: 0px;
+  }
 }
 
 .wrapper button{

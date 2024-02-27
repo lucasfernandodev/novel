@@ -15,7 +15,17 @@ import { FullBookDetails } from '../../Components/FullBookDetails';
 import { Tags } from '../../Components/Tags';
 import { TableChapterContent } from '../../Components/TableChapterContent';
 
-
+const SectionAbout = ({ sinopse, tags }: { sinopse: string, tags: string[] }) => {
+  return (
+    <section className={style.about}>
+      <Sinopse>
+        <p>{sinopse}</p>
+      </Sinopse>
+      <Tags tags={tags} />
+      <GridBooksRecomendations />
+    </section>
+  )
+}
 
 export const Novel = () => {
 
@@ -86,15 +96,7 @@ export const Novel = () => {
           </ModalBottom>}
       </header>
       <main>
-        {tab === 'about' &&
-          <section className={style.about}>
-            <Sinopse>
-              <p>{data.description}</p>
-            </Sinopse>
-            <Tags tags={data.tags} />
-            <GridBooksRecomendations />
-          </section>}
-
+        {tab === 'about' && <SectionAbout sinopse={data.description} tags={data.tags} />}
 
         {tab === 'chapters' &&
           <section className={style.chapthers}>
