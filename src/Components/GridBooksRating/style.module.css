@@ -47,13 +47,27 @@
 
 .grid__book .title{
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--white);
   line-height: 140%;
 }
 
-.grid__book  .author,
+.grid__book  .author{
+  font-size: 1.2rem;
+  color: var(--gray-400)
+}
 .grid__book .rating{
   font-size: 1.4rem;
   color: var(--gray-400)
+}
+
+.grid__book .rating{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.grid__book .rating svg{
+  width: 14.24px;
+  height: auto;
 }

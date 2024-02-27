@@ -10,6 +10,7 @@ import IconArrowCompactDown from './ArrowCompactDown'
 import IconFlag from './Flag';
 import IconOrderByOld from './OrderByOld';
 import IconOrderByRecent from './OrderByRecent';
+import { IconStar } from './Star';
 
 export {
   IconBooks,
@@ -23,5 +24,6 @@ export {
   IconArrowCompactDown,
   IconFlag,
   IconOrderByOld,
-  IconOrderByRecent
+  IconOrderByRecent,
+  IconStar
 }

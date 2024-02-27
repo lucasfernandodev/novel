@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
+import { IconStar } from '../../assets/icons';
 
 interface INovels {
   id: string,
@@ -36,7 +37,10 @@ export const GridBooksRating = () => {
               <div className={style.info}>
                 <h3 className={style.title}>{novel.title}</h3>
                 <span className={style.author}>{novel.author}</span>
-                <span className={style.rating}>Nota {novel.rating} / 5 com {novel.rating_votes} votos</span>
+                <span className={style.rating}>
+                  <span><IconStar /></span>
+                  <span>{novel.rating}</span>
+                </span>
               </div>
             </a>
           ))}
