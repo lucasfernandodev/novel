@@ -2,6 +2,7 @@ import style from './style.module.css';
 import { IconBooks, IconCompass, IconConfig, IconServer, IconUpdate } from '../../assets/icons';
 import React from 'react';
 import { Link } from '../../layout/Link';
+import { Avatar } from '../Avatar';
 
 interface IPropsNavigation {
   closeMenu: (value: boolean) => void
@@ -20,7 +21,7 @@ export const Navigation: React.FC<IPropsNavigation> = ({ closeMenu }) => {
       <div className={style.wrapper}>
         <div className={style.userProfile}>
           <div className={style.col}>
-            <div className={style.avatar}></div>
+            <Avatar src="" alt="User" width={48} height={48}/>
           </div>
           <div className={style.col}>
             <div className={style.info}>

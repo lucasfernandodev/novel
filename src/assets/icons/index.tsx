@@ -11,6 +11,7 @@ import IconFlag from './Flag';
 import IconOrderByOld from './OrderByOld';
 import IconOrderByRecent from './OrderByRecent';
 import { IconStar } from './Star';
+import IconUser from "./User";
 
 export {
   IconBooks,
@@ -25,5 +26,6 @@ export {
   IconFlag,
   IconOrderByOld,
   IconOrderByRecent,
-  IconStar
+  IconStar,
+  IconUser
 }
