@@ -70,7 +70,7 @@ export const SignIn = () => {
         </fieldset>
 
         <button onClick={handleSubmit} type="submit">Entrar</button>
-        <p>Ainda não tem uma conta? <Link to="/signup">Criar Conta</Link></p>
+        <p>Ainda não tem uma conta? <Link to="/cadastrar">Criar Conta</Link></p>
       </form>
     </Layout>
   )

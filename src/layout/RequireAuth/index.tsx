@@ -10,7 +10,7 @@ export const RequeireAuth = ({ children }: { children: JSX.Element }) => {
   useEffect(() => {
 
     if(!user && !loading){
-      navigate("/signin")
+      navigate("/login")
     }
   }, [loading, navigate, user])
 
