@@ -4,6 +4,7 @@ import ErrorPage from "./Pages/ErrorPage"
 import { Novel } from "./Pages/Novel"
 import { SignUp } from "./Pages/SignUp"
 import { SignIn } from "./Pages/SignIn"
+import { Library } from "./Pages/Library"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/novel",
     element: <Novel />,
+  },
+  {
+    path: "/biblioteca",
+    element: <Library />,
   }
 ])
 

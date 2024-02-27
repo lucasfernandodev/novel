@@ -35,7 +35,7 @@ export const Navigation: React.FC<IPropsNavigation> = ({ closeMenu }) => {
         </div> : <div className={style.containerButton}><Link to="/login">Acessar Conta</Link></div>}
         <ul className={style.menu}>
           <li className={style.item}>
-            <Link to="#" className={style.link}>
+            <Link to="/biblioteca" className={style.link}>
               <span><IconBooks /></span>
               <span>Biblioteca</span>
             </Link>
