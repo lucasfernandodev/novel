@@ -1,48 +1,41 @@
 import axios from 'axios';
+import { User as UserType } from '../types/user';
+
+const USER: UserType = {
+  id: '9a4cda5b-12b5-5e03-822a-7d33af73bcf0',
+  name: 'Lucas Fernando', 
+  username: 'lucasfernandodev',
+  avatarUrl: 'https://yt3.ggpht.com/7nd5nVYi8CrD1UpY2QR56VmvYyiNPSfo5M2tRTfYiEg40AQ_dl9X48NMOILG7M5xJqZ2mE2lCwQ=s88-c-k-c0x00ffffff-no-rj',
+  email: 'exemplo@gmail.com',
+}
 
 export const APi = axios.create({
   baseURL: import.meta.env.REACT_APP_API,
 })
 
 export const useApi = () => ({
-  validateToken: async (token: string) => {
-
+  validateToken: async (token: string): Promise<{user: UserType}> => {
     return new Promise((sucess) => {
+      console.log(`Valdiate token, with target: ${token}`)
       sucess({
-        user: {
-          id: '9a4cda5b-12b5-5e03-822a-7d33af73bcf0',
-          name: 'Jonh',
-          email: 'john@exemplo.com'
-        },
+        user: USER,
       })
     })
-    const response = await APi.post('/validate', {
-      token
-    });
-    return response.data
   },
 
-  signin: async (email: string, password: string) => {
+  signin: async (email: string, password: string): Promise<{user: UserType, token: string}> => {
     return new Promise((sucess) => {
+      console.log(`Login using email: ${email}, password: ${password}`)
       sucess({
-        user: {
-          id: '9a4cda5b-12b5-5e03-822a-7d33af73bcf0',
-          name: 'Jonh',
-          email: 'john@exemplo.com'
-        },
+        user: USER,
         token: 'd2791bfa-100b-5695-8607-821b0469bd2a'
       })
     })
-    const response = await APi.post('/signin', {
-      email,
-      password
-    });
-    return response.data
   },
 
   logout: async () => {
-    return { status: true }
-    const response = await APi.post('/logout');
-    return response.data
+    return new Promise((sucess) => {
+      sucess({ status: true })
+    })
   }
 })

@@ -3,11 +3,13 @@ import { Navigation } from '../../Components/Navigation';
 import style from './style.module.css';
 import { Link } from '../Link';
 import { Avatar } from '../../Components/Avatar';
+import { useAuth } from '../../Hook/useAuth';
 
 export const Header = () => {
-  const [isOpen,setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useAuth()
 
-  function toggleNavigationMenu(){
+  function toggleNavigationMenu() {
     setIsOpen(!isOpen)
   }
 
@@ -19,8 +21,8 @@ export const Header = () => {
       <form className={style.form__search}>
         <input type="text" className={style.search} placeholder='Buscar por título, autor, editora, gênero...' />
       </form>
-      <Avatar src="" alt="User" onClick={toggleNavigationMenu}/>
-      {isOpen && <Navigation closeMenu={setIsOpen}/>}
+      <Avatar src={user?.avatarUrl ?? ''} alt={user?.name ?? 'Image not loaded'} onClick={toggleNavigationMenu} />
+      {isOpen && <Navigation closeMenu={setIsOpen} />}
     </header>
   )
 }
