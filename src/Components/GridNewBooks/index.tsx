@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
 import style from './style.module.css';

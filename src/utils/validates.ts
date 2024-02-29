@@ -42,7 +42,6 @@ export const validates:TValidates = {
   },
   username(username: string) {
     const log = {error: false} as { error: boolean, msg: string };
-    // eslint-disable-next-line no-useless-escape
     const regex = /^(?=.*[a-zA-Z])\s*[a-zA-Z\s]*$/;
 
     if (username.length === 0) {
