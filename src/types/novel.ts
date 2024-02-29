@@ -10,5 +10,14 @@ export interface INovel {
   language: string,
   qtd_chapters: string,
   publisher: string,
-  rating: string
+  rating: string,
+  avatarUrl: string;
+}
+
+export interface ILibraryNovel{
+  id: string;
+  avatarUrl: string;
+  title: string;
+  updateAt: string;
+  lastChapterId: string | null
 }

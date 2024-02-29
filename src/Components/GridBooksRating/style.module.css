@@ -36,6 +36,7 @@
   justify-content: center;
   background-color: var(--black-400);
   border-radius: 50%;
+  overflow: hidden;
 }
 
 .grid__book .info{
@@ -56,6 +57,7 @@
   font-size: 1.2rem;
   color: var(--gray-400)
 }
+
 .grid__book .rating{
   font-size: 1.4rem;
   color: var(--gray-400)

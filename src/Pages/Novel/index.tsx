@@ -58,12 +58,12 @@ export const Novel = () => {
   }
 
   return (
-    <Layout className={style.novel} isPrivate={true}>
+    <Layout className={style.novel}>
       <header>
 
         <div className={style.bookCover}>
           <div className={style.thumbnail}>
-            <Thumbnail src="" alt="" />
+            <Thumbnail src={data.avatarUrl} alt={data.title} />
           </div>
           <div className={style.bookDetails}>
             <div className={style.row}>
@@ -82,7 +82,14 @@ export const Novel = () => {
           </div>
         </div>
 
-        <NovelPageButtonsActions />
+        <NovelPageButtonsActions
+          novel={{
+            avatarUrl: data.avatarUrl,
+            title: data.title,
+            lastChapterId: null,
+            updateAt: (new Date()).toISOString()
+          }
+          } />
 
         <ToggleTabButton changeTab={setTab} />
 

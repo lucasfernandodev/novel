@@ -13,7 +13,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
+
+.bookCover .thumbnail img{
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 0px;
+}
+
 
 .bookCover .bookDetails{
   display: flex;

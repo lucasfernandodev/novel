@@ -12,6 +12,7 @@ import IconOrderByOld from './OrderByOld';
 import IconOrderByRecent from './OrderByRecent';
 import { IconStar } from './Star';
 import IconUser from "./User";
+import IconTrash from './Trash';
 
 export {
   IconBooks,
@@ -27,5 +28,6 @@ export {
   IconOrderByOld,
   IconOrderByRecent,
   IconStar,
-  IconUser
+  IconUser,
+  IconTrash
 }

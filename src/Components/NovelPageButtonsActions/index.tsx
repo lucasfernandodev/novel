@@ -1,15 +1,36 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { IconHeart } from '../../assets/icons';
 import style from './style.module.css';
+import { ILibraryNovel } from '../../types/novel';
+import { useApi } from '../../Hook/useApi';
+import { useQuery } from 'react-query';
 
-export const NovelPageButtonsActions = () => {
+interface IProps {
+  novel: Omit<ILibraryNovel, 'id'>;
+}
+
+export const NovelPageButtonsActions: FC<IProps> = ({ novel }) => {
+
   const [showButtons, setShowwButtons] = useState(true);
+  const [isNovelAddedToLibrary, setIsNovelAddedToLibrary] = useState(false)
+  const api = useApi();
+  
+  const { isLoading, data } = useQuery('library-itens-fetch', api.getLibraryContent)
 
-  function addForLibrary(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  useEffect(() => {
+    if (!isLoading && data) {
+      setIsNovelAddedToLibrary((data.filter(n => n.title === novel.title).length > 0) ? true : false)
+    }
+  }, [data, isLoading, novel])
+
+  async function addForLibrary(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     const button = e.currentTarget as HTMLButtonElement;
     if (button.classList.contains(style.favorited)) {
+      const currentNovel = data?.filter(n => n.title === novel.title) as ILibraryNovel[]
+      await api.removeBookForLibrary(currentNovel[0].id)
       button.classList.remove(style.favorited)
     } else {
+      await api.addForLibrary(novel)
       button.classList.add(style.favorited)
     }
   }
@@ -29,7 +50,7 @@ export const NovelPageButtonsActions = () => {
       );
 
       const scrollPosition = scrollPositionY + alturaViewport;
-      scrollPosition >= (alturaTotalDaPagina - 80) ?setShowwButtons(false) : setShowwButtons(true)
+      scrollPosition >= (alturaTotalDaPagina - 80) ? setShowwButtons(false) : setShowwButtons(true)
     }
 
     document.addEventListener('scroll', toggleButtonsVisibility, false)
@@ -43,7 +64,13 @@ export const NovelPageButtonsActions = () => {
   return (
     <div className={style.actions} data-show={showButtons}>
       <button>Começar a ler</button>
-      <button onClick={addForLibrary}><IconHeart /></button>
+      <button
+        className={isNovelAddedToLibrary ? style.favorited : ''}
+        onClick={addForLibrary}
+        aria-label='Adicionar novel biblioteca'
+      >
+        <IconHeart />
+      </button>
     </div>
   )
 }

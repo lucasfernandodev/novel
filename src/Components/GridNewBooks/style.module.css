@@ -36,6 +36,7 @@
   justify-content: center;
   background-color: var(--black-400);
   border-radius: 6px;
+  overflow: hidden;
 }
 
 
