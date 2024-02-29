@@ -4,6 +4,8 @@ import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
 import { IconStar } from '../../assets/icons';
 import { INovel } from '../../types/novel';
+import { Link } from '@/layout/Link';
+import { generateSlug } from '@/utils/generateSlug';
 
 
 export const GridBooksRating = () => {
@@ -22,7 +24,7 @@ export const GridBooksRating = () => {
       <div className={style.wrapper}>
         {data.length
           > 0 && data.slice(0, 10).map((novel: INovel) => (
-            <a key={novel.id} href="#" className={style.grid__book}>
+            <Link key={novel.id} to={`/novel?id=${generateSlug(novel.title)}`} className={style.grid__book}>
               <div className={style.container}>
                 <Thumbnail className={style.thumbnail} src={novel.avatarUrl} alt={novel.title} />
               </div>
@@ -34,7 +36,7 @@ export const GridBooksRating = () => {
                   <span>{novel.rating}</span>
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
       </div>
     </section>
