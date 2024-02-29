@@ -4,7 +4,6 @@ import { Thumbnail } from '@components/Thumbnail';
 import { IconFlag, IconInfo } from '../../assets/icons';
 import { Sinopse } from '@components/Sinopse';
 import { GridBooksRecomendations } from '@components/GridBooksRecomendations';
-import { ToggleTabButton } from '@components/ToggleTabButton';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { generateSlug } from '../../utils/generateSlug';
@@ -14,23 +13,13 @@ import { INovel } from '../../types/novel';
 import { FullBookDetails } from '@components/FullBookDetails';
 import { Tags } from '@components/Tags';
 import { TableChapterContent } from '@components/TableChapterContent';
+import { TabContent, TabList, TabTrigger, Tabs } from '@/Components/Tabs';
 
-const SectionAbout = ({ sinopse, tags }: { sinopse: string, tags: string[] }) => {
-  return (
-    <section className={style.about}>
-      <Sinopse>
-        <p>{sinopse}</p>
-      </Sinopse>
-      <Tags tags={tags} />
-      <GridBooksRecomendations />
-    </section>
-  )
-}
+
 
 export const Novel = () => {
 
   const [search,] = useSearchParams();
-  const [tab, setTab] = useState<'about' | 'chapters'>('about')
   const [data, setData] = useState({} as INovel);
   const [showBottomModal, setShowBottomModal] = useState(false);
 
@@ -59,8 +48,7 @@ export const Novel = () => {
 
   return (
     <Layout className={style.novel}>
-      <header>
-
+      <header className={style.header}>
         <div className={style.bookCover}>
           <div className={style.thumbnail}>
             <Thumbnail src={data.avatarUrl} alt={data.title} />
@@ -91,8 +79,6 @@ export const Novel = () => {
           }
           } />
 
-        <ToggleTabButton changeTab={setTab} />
-
         {data && showBottomModal &&
           <ModalBottom className={style.modal} isShow={showBottomModal} hiddenModal={setShowBottomModal}>
             <FullBookDetails data={data} />
@@ -100,17 +86,26 @@ export const Novel = () => {
               <span><IconFlag /></span>
               <span>Reportar</span>
             </button>
-          </ModalBottom>}
-      </header>
-      <main>
-        {tab === 'about' && <SectionAbout sinopse={data.description} tags={data.tags} />}
-
-        {tab === 'chapters' &&
-          <section className={style.chapthers}>
-            <TableChapterContent />
-          </section>
+          </ModalBottom>
         }
-      </main>
+      </header>
+
+      <Tabs className={style.tabs}>
+        <TabList className={style.tablist}>
+          <TabTrigger option='about'>Sobre</TabTrigger>
+          <TabTrigger option='chapters'>Lista de Capítulos</TabTrigger>
+        </TabList>
+        <TabContent value='about' className={style.about}>
+          <Sinopse>
+            <p>{data.description}</p>
+          </Sinopse>
+          <Tags tags={data.tags} />
+          <GridBooksRecomendations />
+        </TabContent>
+        <TabContent value='chapters'>
+          <TableChapterContent />
+        </TabContent>
+      </Tabs>
     </Layout >
   )
 }

@@ -1,9 +1,8 @@
-.wrapper{
-  margin-top: 24px;
-  max-width: 410px;
+.tab{
+  margin-bottom: 64px;
 }
 
-.button{
+.tabList{
   background: var(--black-400);
   padding: 10px 12px;
   width: 100%;
@@ -12,9 +11,10 @@
   display: flex;
   gap: 16px;
   justify-content: center;
+  margin-bottom: 32px;
 }
 
-.button span{
+.tabList > .tabTrigger{
   padding: 8px 0px;
   display: flex;
   align-items: center;
@@ -26,7 +26,15 @@
   cursor: pointer;
 }
 
-.button span.hightlite{
+.tabList > .tabTrigger.active{
   background: var(--white);
   color: var(--black-900)
+}
+
+.content{
+  display: none;
+}
+
+.content.active{
+  display: flex;
 }

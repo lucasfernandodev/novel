@@ -1,3 +1,8 @@
+.header{
+  margin-bottom: 32px;
+  max-width: 1024px
+}
+
 .bookCover{
   display: flex;
   flex-direction: row;
@@ -127,15 +132,15 @@
   height: auto;
 }
 
-
-
-
-
-.novel main{
-  margin: 32px 0px;
+.tabs{
+  max-width: 1024px
 }
 
-.novel main .about{
+.tablist{
+  max-width: 410px
+}
+
+.about{
   display: flex;
   flex-direction: column;
   gap: 32px;
