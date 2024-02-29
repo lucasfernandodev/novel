@@ -1,7 +1,8 @@
 import style from './style.module.css';
 
+type tab = 'about' | 'chapters';
 interface IProps {
-  changeTab: (tab: 'about' | 'chapters') => void
+  changeTab: (tab: tab) => void
 }
 
 export const ToggleTabButton: React.FC<IProps> = ({ changeTab }) => {
@@ -9,18 +10,13 @@ export const ToggleTabButton: React.FC<IProps> = ({ changeTab }) => {
   function toggleTab(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.stopPropagation()
     const button = e.currentTarget as HTMLButtonElement;
-    const options = button.querySelectorAll('span');
+    const nodes = button.childNodes as NodeListOf<HTMLSpanElement>
+    const target = e.target as HTMLButtonElement | HTMLSpanElement;
 
-    for (const option of options) {
-      const tab = option.dataset.target as 'about' | 'chapters';
-      if (option.classList.contains(style.hightlite)) {
-        option.classList.remove(style.hightlite)
-      } else {
-        if (tab) {
-          option.classList.add(style.hightlite)
-          changeTab && changeTab(tab)
-        }
-      }
+    if (typeof target.dataset.target !== "undefined") {
+      nodes.forEach(el => el.classList.remove(style.hightlite))
+      target.classList.add(style.hightlite)
+      changeTab(target.dataset.target as tab)
     }
   }
 

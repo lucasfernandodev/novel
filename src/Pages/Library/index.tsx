@@ -1,7 +1,7 @@
+import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { IconOrderByOld, IconOrderByRecent, IconTrash } from '../../assets/icons';
 import { Layout } from '../../layout/Layout';
-import style from './style.module.css';
 import { useQuery } from 'react-query';
 import { useApi } from '../../Hook/useApi';
 import { ILibraryNovel } from '../../types/novel';

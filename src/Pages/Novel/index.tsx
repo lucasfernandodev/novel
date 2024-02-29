@@ -1,7 +1,7 @@
+import style from './style.module.css';
 import { Layout } from '../../layout/Layout';
 import { Thumbnail } from '@components/Thumbnail';
 import { IconFlag, IconInfo } from '../../assets/icons';
-import style from './style.module.css';
 import { Sinopse } from '@components/Sinopse';
 import { GridBooksRecomendations } from '@components/GridBooksRecomendations';
 import { ToggleTabButton } from '@components/ToggleTabButton';
