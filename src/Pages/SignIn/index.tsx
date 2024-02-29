@@ -1,14 +1,14 @@
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import style from './style.module.css';
 import { Link } from '../../layout/Link';
 import { Layout } from '../../layout/Layout';
 import { useValidateForm } from '../../Hook/useValidateForm';
-import { AuthContext } from '../../context/Auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/Hook/useAuth';
 
 export const SignIn = () => {
 
-  const auth = useContext(AuthContext)
+  const auth = useAuth()
   const ref = useRef<HTMLFormElement>(null);
   const navigate = useNavigate()
 

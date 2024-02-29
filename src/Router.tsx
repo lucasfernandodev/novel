@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { Homepage } from "./Pages/Homepage"
-import ErrorPage from "./Pages/ErrorPage"
-import { Novel } from "./Pages/Novel"
-import { SignUp } from "./Pages/SignUp"
-import { SignIn } from "./Pages/SignIn"
-import { Library } from "./Pages/Library"
+import ErrorPage from "@pages/ErrorPage"
+import { Homepage } from "@pages/Homepage"
+import { Novel } from "@pages/Novel"
+import { SignUp } from "@pages/SignUp"
+import { SignIn } from "@pages/SignIn"
+import { Library } from "@pages/Library"
 
 const router = createBrowserRouter([
   {

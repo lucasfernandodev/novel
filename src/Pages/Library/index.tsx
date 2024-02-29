@@ -5,9 +5,9 @@ import style from './style.module.css';
 import { useQuery } from 'react-query';
 import { useApi } from '../../Hook/useApi';
 import { ILibraryNovel } from '../../types/novel';
-import { Loading } from '../../Components/Loading';
+import { Loading } from '@components/Loading';
 import { generateSlug } from '../../utils/generateSlug';
-import { Thumbnail } from '../../Components/Thumbnail';
+import { Thumbnail } from '@components/Thumbnail';
 import { useNavigate } from 'react-router-dom';
 
 

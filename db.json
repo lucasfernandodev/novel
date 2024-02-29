@@ -721,7 +721,22 @@
       "id": "d6dc"
     }
   ],
-  "library": [],
+  "library": [
+    {
+      "id": "a916",
+      "avatarUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/800px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg",
+      "title": "To Kill a Mockingbird",
+      "lastChapterId": null,
+      "updateAt": "2024-02-29T00:33:13.243Z"
+    },
+    {
+      "id": "843e",
+      "avatarUrl": "https://upload.wikimedia.org/wikipedia/pt/7/74/1984cover.jpg",
+      "title": "1984",
+      "lastChapterId": null,
+      "updateAt": "2024-02-29T00:38:32.644Z"
+    }
+  ],
   "novels": [
     {
       "avatarUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg/800px-The_Great_Gatsby_Cover_1925_Retouched.jpg",

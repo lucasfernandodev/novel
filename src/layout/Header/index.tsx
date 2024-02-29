@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Navigation } from '../../Components/Navigation';
+import { Navigation } from '@components/Navigation';
 import style from './style.module.css';
 import { Link } from '../Link';
-import { Avatar } from '../../Components/Avatar';
+import { Avatar } from '@components/Avatar';
 import { useAuth } from '../../Hook/useAuth';
 
 export const Header = () => {

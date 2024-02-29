@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react"
-import { AuthContext } from "../../context/Auth/AuthContext"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/Hook/useAuth";
 
 export const RequeireAuth = ({ children }: { children: JSX.Element }) => {
 
-  const { user, loading } = useContext(AuthContext);
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {

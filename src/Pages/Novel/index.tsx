@@ -1,19 +1,19 @@
 import { Layout } from '../../layout/Layout';
-import { Thumbnail } from '../../Components/Thumbnail';
+import { Thumbnail } from '@components/Thumbnail';
 import { IconFlag, IconInfo } from '../../assets/icons';
 import style from './style.module.css';
-import { Sinopse } from '../../Components/Sinopse';
-import { GridBooksRecomendations } from '../../Components/GridBooksRecomendations';
-import { ToggleTabButton } from '../../Components/ToggleTabButton';
+import { Sinopse } from '@components/Sinopse';
+import { GridBooksRecomendations } from '@components/GridBooksRecomendations';
+import { ToggleTabButton } from '@components/ToggleTabButton';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { generateSlug } from '../../utils/generateSlug';
-import { NovelPageButtonsActions } from '../../Components/NovelPageButtonsActions';
-import { ModalBottom } from '../../Components/ModalBottom';
+import { NovelPageButtonsActions } from '@components/NovelPageButtonsActions';
+import { ModalBottom } from '@components/ModalBottom';
 import { INovel } from '../../types/novel';
-import { FullBookDetails } from '../../Components/FullBookDetails';
-import { Tags } from '../../Components/Tags';
-import { TableChapterContent } from '../../Components/TableChapterContent';
+import { FullBookDetails } from '@components/FullBookDetails';
+import { Tags } from '@components/Tags';
+import { TableChapterContent } from '@components/TableChapterContent';
 
 const SectionAbout = ({ sinopse, tags }: { sinopse: string, tags: string[] }) => {
   return (
