@@ -1,6 +1,6 @@
+import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { Thumbnail } from '../Thumbnail';
-import style from './style.module.css';
 import { getNovels } from '../../lib/getNovels';
 import { generateSlug } from '../../utils/generateSlug';
 import { Link } from '../../layout/Link';
