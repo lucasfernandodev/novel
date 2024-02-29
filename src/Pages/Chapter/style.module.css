@@ -1,0 +1,10 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0px 64px 0px
+}
+
+.content p{
+  line-height: 180%;
+}

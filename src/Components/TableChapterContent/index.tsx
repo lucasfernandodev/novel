@@ -40,7 +40,7 @@ export const TableChapterContent = () => {
         {data && order && chapters.map(chapter => {
           return (
             <li key={chapter.title}>
-              <Link to="#">{chapter.title}</Link>
+              <Link to="/chapter?id=chapter1">{chapter.title}</Link>
               <span>{chapter.timeago}</span>
             </li>
           )

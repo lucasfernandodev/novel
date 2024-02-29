@@ -5,6 +5,7 @@ import { Novel } from "@pages/Novel"
 import { SignUp } from "@pages/SignUp"
 import { SignIn } from "@pages/SignIn"
 import { Library } from "@pages/Library"
+import { Chapter } from "./Pages/Chapter"
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/novel",
     element: <Novel />,
+  },
+  {
+    path: "/chapter",
+    element: <Chapter />
   },
   {
     path: "/biblioteca",
