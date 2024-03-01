@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 import style from './style.module.css';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
@@ -11,9 +11,10 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
   }
 }
 
-export const ChapterContent: FC<IProps> = ({ paragraphs, config }) => {
+export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, config }, ref) => {
   return (
     <div
+      ref={ref}
       style={{
         fontFamily: config.fontFamily,
         gap: `${config.gap}px`
@@ -28,4 +29,4 @@ export const ChapterContent: FC<IProps> = ({ paragraphs, config }) => {
       )}
     </div>
   )
-}
+})

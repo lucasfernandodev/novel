@@ -1,0 +1,60 @@
+.modal{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 3, 7, 85%);
+  z-index: 500;
+}
+
+.wrapper{
+  background-color: var(--black-700);
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 85%;
+  min-width: 290px;
+  padding: 32px 16px;
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 36px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+
+.form fieldset{
+  border: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.form label{
+  font-size: 1.6rem;
+  line-height: 180%;
+  font-weight: 400;
+}
+
+.button{
+  width: 256px;
+  height: 54px;
+  border-radius: 32px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  background: var(--primary);
+  color: var(--black-300);
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
