@@ -7,7 +7,6 @@ import { IChapter } from "@/types/chapter";
 import { ChapterContent } from "@/Components/ChapterContent";
 import { useEffect, useState } from "react";
 import { IconList } from "@/assets/icons";
-import { Link } from "@/layout/Link";
 import { Loading } from "@/Components/Loading";
 
 export const Chapter = () => {
