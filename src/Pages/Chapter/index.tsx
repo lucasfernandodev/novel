@@ -18,7 +18,7 @@ export const Chapter = () => {
   const [search,] = useSearchParams();
   const currentChapterId = search.get('id')
   const ref = useRef<HTMLDivElement>(null)
-  
+
   if (!search.get('id')) {
     navigate("/")
   }
@@ -66,7 +66,7 @@ export const Chapter = () => {
     }
 
     window.addEventListener('dblclick', showModal)
- 
+
 
     return () => {
       window.removeEventListener('dblclick', showModal)
@@ -109,7 +109,7 @@ export const Chapter = () => {
 
     const showModalInMobile = detectDoubleTapClosure(showModal)
 
-    if(contentEl){
+    if (contentEl) {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         contentEl.addEventListener('touchend', showModalInMobile, { passive: false });
       }

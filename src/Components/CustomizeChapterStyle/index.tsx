@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import style from './style.module.css';
-import Select from 'react-select'
-import { reactSelectStyle } from '@/styles/react-select-style';
+import { Select } from '../Select';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   changeFontFamily: (font: string) => void,
@@ -10,19 +9,6 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
   changeGap: (gap: number) => void,
   closeMenu: (value: boolean) => void
 }
-
-interface options {
-  label: string
-}
-
-interface optionValueNumber extends options {
-  value: number
-}
-
-interface optionValueString extends options {
-  value: string
-}
-
 
 
 export const CustomizeChapterStyle: FC<IProps> = ({
@@ -61,7 +47,7 @@ export const CustomizeChapterStyle: FC<IProps> = ({
     if (modal && typeof modal.dataset.root !== 'undefined') return closeMenu(false)
   }
 
-  function saveConfig(e: React.MouseEvent<HTMLButtonElement, MouseEvent>){
+  function saveConfig(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
     closeMenu(false)
   }
@@ -75,9 +61,8 @@ export const CustomizeChapterStyle: FC<IProps> = ({
             <label htmlFor="font-size">Escolha uma familia de fonte</label>
             <Select
               defaultValue={optionsFamily[0]}
-              styles={reactSelectStyle}
               options={optionsFamily}
-              onChange={e => changeFontFamily((e as optionValueString).value ?? optionsFamily[0].value)}
+              onChange={e => changeFontFamily(e?.value ?? optionsFamily[0].value)}
               isMulti={false}
             />
           </fieldset>
@@ -85,27 +70,24 @@ export const CustomizeChapterStyle: FC<IProps> = ({
             <label>Tamanho da fonte</label>
             <Select
               defaultValue={optionsFontSize[0]}
-              styles={reactSelectStyle}
               options={optionsFontSize}
-              onChange={e => changeFontSize((e as optionValueNumber).value ?? optionsFontSize[0].value)}
+              onChange={e => changeFontSize(e?.value ?? optionsFontSize[0].value)}
             />
           </fieldset>
           <fieldset>
             <label>Espaçamento entre linhas</label>
             <Select
-                defaultValue={optionsLineHeight[0]}
-              styles={reactSelectStyle}
+              defaultValue={optionsLineHeight[0]}
               options={optionsLineHeight}
-              onChange={e => changeLineHeight((e as optionValueNumber).value ?? optionsLineHeight[0].value)}
+              onChange={e => changeLineHeight(e?.value ?? optionsLineHeight[0].value)}
             />
           </fieldset>
           <fieldset>
             <label>Espaçamento entre paragrafos</label>
             <Select
               defaultValue={optionsGap[0]}
-              styles={reactSelectStyle}
               options={optionsGap}
-              onChange={e => changeGap((e as optionValueNumber).value ?? optionsGap[0].value)}
+              onChange={e => changeGap(e?.value ?? optionsGap[0].value)}
             />
           </fieldset>
           <button className={style.button} onClick={saveConfig}>Salvar</button>
