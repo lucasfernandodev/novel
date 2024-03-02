@@ -6,10 +6,10 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { IChapter } from "@/types/chapter";
 import { ChapterContent } from "@/Components/ChapterContent";
 import { useEffect, useRef, useState } from "react";
-import { IconList } from "@/assets/icons";
 import { Loading } from "@/Components/Loading";
 import { CustomizeChapterStyle } from "@/Components/CustomizeChapterStyle";
 import { detectDoubleTapClosure } from "@/utils/detectDoubleTapClosure";
+import { ChapterController } from "@/Components/ChapterController";
 
 export const Chapter = () => {
 
@@ -24,21 +24,11 @@ export const Chapter = () => {
   }
 
 
-  const [prevChapter, setPrevChapter] = useState<string | null>(null);
-  const [nextChapter, setNextChapter] = useState<string | null>(null);
+
   const [chapter, setChapter] = useState<IChapter | null>(null);
   const [showModal, setShowModal] = useState(false)
 
-  const isButtonPrevDisabled = prevChapter !== null ? false : true;
-  const isButtonNextDisabled = nextChapter !== null ? false : true;
 
-  function toNext() {
-    nextChapter && navigate(nextChapter)
-  }
-
-  function toBack() {
-    prevChapter && navigate(prevChapter)
-  }
 
   const [config, setConfig] = useState({
     fontFamily: 'Roboto, sans-serif',
@@ -55,8 +45,6 @@ export const Chapter = () => {
   useEffect(() => {
     if (!isLoading && data) {
       setChapter(data);
-      setPrevChapter(data.prev_chapter ? `/chapter?id=${data.prev_chapter}` : null);
-      setNextChapter(data.next_chapter ? `/chapter?id=${data.next_chapter}` : null);
     }
   }, [data, isLoading])
 
@@ -65,11 +53,13 @@ export const Chapter = () => {
       setShowModal(true)
     }
 
-    window.addEventListener('dblclick', showModal)
+    const contentEl = ref.current
+
+    contentEl && contentEl.addEventListener('dblclick', showModal)
 
 
     return () => {
-      window.removeEventListener('dblclick', showModal)
+      contentEl && contentEl.removeEventListener('dblclick', showModal)
     }
   }, [])
 
@@ -127,19 +117,8 @@ export const Chapter = () => {
       >
         {chapter?.title ?? 'Chapter'}
       </h1>
-      <div className={style.chapterController}>
-        <button disabled={isButtonPrevDisabled} onClick={toBack} className={style.btn}>
-          Voltar
-        </button>
-        <button className={style.btn}>
-          <span><IconList /></span>
-          <span>Capitulos</span>
-        </button>
-        <button disabled={isButtonNextDisabled} onClick={toNext} className={style.btn}>
-          Proximo
-        </button>
-      </div>
 
+      <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
       {isLoading && <Loading />}
       {!isLoading && chapter !== null &&
@@ -147,18 +126,8 @@ export const Chapter = () => {
       }
 
 
-      <div className={style.chapterController}>
-        <button disabled={isButtonPrevDisabled} onClick={toBack} className={style.btn}>
-          Voltar
-        </button>
-        <button className={style.btn}>
-          <span><IconList /></span>
-          <span>Capitulos</span>
-        </button>
-        <button disabled={isButtonNextDisabled} onClick={toNext} className={style.btn}>
-          Proximo
-        </button>
-      </div>
+      <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
+
       {showModal && <CustomizeChapterStyle
         changeGap={changeGap}
         changeFontFamily={changeFontFamily}
