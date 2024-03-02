@@ -1,6 +1,7 @@
 import style from './style.module.css';
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef, useEffect } from 'react';
 import { Loading } from '../Loading';
+import webfont from 'webfontloader'
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
   paragraphs: string[] | null | undefined,
@@ -13,6 +14,14 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, config }, ref) => {
+
+  useEffect(() => {
+    webfont.load({
+      google: {
+        families: [config.fontFamily.split(",")[0]]
+      }
+    });
+   }, [config.fontFamily]);
 
   if(!paragraphs && !config){
     return <Loading />
