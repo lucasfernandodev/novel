@@ -1,8 +1,9 @@
-import { HTMLAttributes, forwardRef } from 'react';
 import style from './style.module.css';
+import { HTMLAttributes, forwardRef } from 'react';
+import { Loading } from '../Loading';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  paragraphs: string[],
+  paragraphs: string[] | null | undefined,
   config: {
     fontFamily: string,
     fontSize: number,
@@ -12,6 +13,11 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, config }, ref) => {
+
+  if(!paragraphs){
+    return <Loading />
+  }
+
   return (
     <div
       ref={ref}

@@ -6,7 +6,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { IChapter } from "@/types/chapter";
 import { ChapterContent } from "@/Components/ChapterContent";
 import { useEffect, useRef, useState } from "react";
-import { Loading } from "@/Components/Loading";
 import { CustomizeChapterStyle } from "@/Components/CustomizeChapterStyle";
 import { detectDoubleTapClosure } from "@/utils/detectDoubleTapClosure";
 import { ChapterController } from "@/Components/ChapterController";
@@ -120,11 +119,7 @@ export const Chapter = () => {
 
       <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
-      {isLoading && <Loading />}
-      {!isLoading && chapter !== null &&
-        <ChapterContent ref={ref} config={config} paragraphs={chapter.content} />
-      }
-
+      <ChapterContent ref={ref} config={config} paragraphs={chapter?.content} />
 
       <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
