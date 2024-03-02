@@ -1,31 +1,61 @@
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import style from './style.module.css';
 import { Select } from '../Select';
+import { IChapterTextStyle } from '@/Hook/useChapterTextStyle';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  changeFontFamily: (font: string) => void,
-  changeFontSize: (size: number) => void,
-  changeLineHeight: (size: number) => void,
-  changeGap: (gap: number) => void,
-  closeMenu: (value: boolean) => void
+  config: IChapterTextStyle,
+  closeMenu: (value: boolean) => void,
+  changeConfig: (value: IChapterTextStyle) => void
+  changeConfigPreview: (value: IChapterTextStyle) => void
 }
 
 
 export const CustomizeChapterStyle: FC<IProps> = ({
-  changeFontFamily,
-  changeFontSize,
-  changeLineHeight,
-  changeGap,
-  closeMenu
+  changeConfig,
+  changeConfigPreview,
+  closeMenu,
+  config
 }) => {
+
+  const [currentConfig, setCurrentconfig] = useState<IChapterTextStyle>(config);
+
+  useEffect(() => {
+    if (currentConfig !== config) {
+      changeConfigPreview(currentConfig);
+    }
+  }, [config, changeConfigPreview, currentConfig])
+
+  const set = {
+    fontFamily: (fonts: string) => {
+      setCurrentconfig(prev => ({ ...prev, fontFamily: fonts }))
+    },
+    fontSize: (size: number) => {
+      setCurrentconfig(prev => ({ ...prev, fontSize: size }))
+    },
+    lineHeight: (lineHeight: number) => {
+      setCurrentconfig(prev => ({ ...prev, lineHeight: lineHeight }))
+    },
+    gap: (gap: number) => {
+      setCurrentconfig(prev => ({ ...prev, gap: gap }))
+    }
+  }
+
+
   const optionsFontSize = [
     { value: 16, label: "16" },
     { value: 18, label: "18" },
-    { value: 24, label: "24" }
+    { value: 24, label: "24" },
+    { value: 24, label: "26" },
+    { value: 24, label: "32" }
   ]
 
   const optionsLineHeight = [
-    { value: 26, label: "Default" }
+    { value: 16, label: "16" },
+    { value: 18, label: "18" },
+    { value: 24, label: "24" },
+    { value: 24, label: "26" },
+    { value: 24, label: "32" }
   ]
 
   const optionsFamily = [
@@ -37,8 +67,10 @@ export const CustomizeChapterStyle: FC<IProps> = ({
 
   const optionsGap = [
     { value: 16, label: "16" },
+    { value: 18, label: "18" },
     { value: 24, label: "24" },
-    { value: 32, label: "32" }
+    { value: 24, label: "26" },
+    { value: 24, label: "32" }
   ]
 
   function toggleVisibility(e: React.MouseEvent<HTMLElement, MouseEvent>) {
@@ -49,6 +81,7 @@ export const CustomizeChapterStyle: FC<IProps> = ({
 
   function saveConfig(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
+    changeConfig(currentConfig)
     closeMenu(false)
   }
 
@@ -60,34 +93,34 @@ export const CustomizeChapterStyle: FC<IProps> = ({
           <fieldset>
             <label htmlFor="font-size">Escolha uma familia de fonte</label>
             <Select
-              defaultValue={optionsFamily[0]}
+              defaultValue={optionsFamily.filter(opt => opt.value === config.fontFamily)}
               options={optionsFamily}
-              onChange={e => changeFontFamily(e?.value ?? optionsFamily[0].value)}
+              onChange={e => e?.value && set.fontFamily(e?.value)}
               isMulti={false}
             />
           </fieldset>
           <fieldset>
             <label>Tamanho da fonte</label>
             <Select
-              defaultValue={optionsFontSize[0]}
+              defaultValue={optionsFontSize.filter(opt => opt.value === config.fontSize)}
               options={optionsFontSize}
-              onChange={e => changeFontSize(e?.value ?? optionsFontSize[0].value)}
+              onChange={e => e?.value && set.fontSize(e?.value)}
             />
           </fieldset>
           <fieldset>
             <label>Espaçamento entre linhas</label>
             <Select
-              defaultValue={optionsLineHeight[0]}
+              defaultValue={optionsLineHeight.filter(opt => opt.value === config.lineHeight)}
               options={optionsLineHeight}
-              onChange={e => changeLineHeight(e?.value ?? optionsLineHeight[0].value)}
+              onChange={e => e?.value && set.lineHeight(e?.value)}
             />
           </fieldset>
           <fieldset>
             <label>Espaçamento entre paragrafos</label>
             <Select
-              defaultValue={optionsGap[0]}
+              defaultValue={optionsGap.filter(opt => opt.value === config.gap)}
               options={optionsGap}
-              onChange={e => changeGap(e?.value ?? optionsGap[0].value)}
+              onChange={e => e?.value && set.gap(e?.value)}
             />
           </fieldset>
           <button className={style.button} onClick={saveConfig}>Salvar</button>

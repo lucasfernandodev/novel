@@ -9,35 +9,27 @@ import { useEffect, useRef, useState } from "react";
 import { CustomizeChapterStyle } from "@/Components/CustomizeChapterStyle";
 import { detectDoubleTapClosure } from "@/utils/detectDoubleTapClosure";
 import { ChapterController } from "@/Components/ChapterController";
+import { useChapterTextStyle } from "@/Hook/useChapterTextStyle";
 
 export const Chapter = () => {
 
   const api = useApi()
   const navigate = useNavigate()
   const [search,] = useSearchParams();
-  const currentChapterId = search.get('id')
-  const ref = useRef<HTMLDivElement>(null)
+  const currentChapterId = search.get('id') as string
+  const { config, preview, changeConfig, changePreviewConfig } = useChapterTextStyle()
+  const contentRef = useRef<HTMLDivElement>(null)
 
   if (!search.get('id')) {
     navigate("/")
   }
 
-
-
   const [chapter, setChapter] = useState<IChapter | null>(null);
   const [showModal, setShowModal] = useState(false)
 
 
-
-  const [config, setConfig] = useState({
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: 16,
-    lineHeight: 28,
-    gap: 16
-  })
-
   const { data, isLoading } = useQuery<IChapter>(
-    ['chapter', currentChapterId as string], () => api.getChapterPage(currentChapterId as string)
+    ['chapter', currentChapterId], () => api.getChapterPage(currentChapterId)
   )
 
 
@@ -47,56 +39,16 @@ export const Chapter = () => {
     }
   }, [data, isLoading])
 
+
   useEffect(() => {
     function showModal() {
       setShowModal(true)
     }
 
-    const contentEl = ref.current
+    const contentEl = contentRef.current
 
+    const showModalInMobile = detectDoubleTapClosure(showModal);
     contentEl && contentEl.addEventListener('dblclick', showModal)
-
-
-    return () => {
-      contentEl && contentEl.removeEventListener('dblclick', showModal)
-    }
-  }, [])
-
-  function changeFontFamily(font: string) {
-    setConfig(prev => ({
-      ...prev,
-      fontFamily: font
-    }))
-  }
-
-  function changeFontSize(size: number) {
-    setConfig(prev => ({
-      ...prev,
-      fontSize: size
-    }))
-  }
-
-  function changeLineHeight(lineHeight: number) {
-    setConfig(prev => ({
-      ...prev,
-      lineHeight: lineHeight
-    }))
-  }
-
-  function changeGap(gap: number) {
-    setConfig(prev => ({
-      ...prev,
-      gap: gap
-    }))
-  }
-
-  useEffect(() => {
-    function showModal() {
-      setShowModal(true)
-    }
-    const contentEl = ref.current
-
-    const showModalInMobile = detectDoubleTapClosure(showModal)
 
     if (contentEl) {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -106,29 +58,31 @@ export const Chapter = () => {
 
     return () => {
       contentEl && contentEl.removeEventListener('touchend', showModalInMobile);
+      contentEl && contentEl.removeEventListener('dblclick', showModal)
     }
   }, [chapter?.id])
 
   return (
     <Layout className={style.layout}>
-      <h1 className={style.title}
-        style={{ fontFamily: config.fontFamily }}
-      >
-        {chapter?.title ?? 'Chapter'}
+      <h1 className={style.title} style={{ fontFamily: config.fontFamily }}>
+        {chapter?.title ?? ''}
       </h1>
 
       <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
-      <ChapterContent ref={ref} config={config} paragraphs={chapter?.content} />
+      <ChapterContent
+        ref={contentRef}
+        config={!showModal ? config : preview}
+        paragraphs={chapter?.content}
+      />
 
       <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
       {showModal && <CustomizeChapterStyle
-        changeGap={changeGap}
-        changeFontFamily={changeFontFamily}
-        changeFontSize={changeFontSize}
-        changeLineHeight={changeLineHeight}
+        config={config}
         closeMenu={setShowModal}
+        changeConfig={changeConfig}
+        changeConfigPreview={changePreviewConfig}
       />}
     </Layout>
   )

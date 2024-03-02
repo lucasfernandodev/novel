@@ -14,7 +14,7 @@ interface IProps extends HTMLAttributes<HTMLDivElement> {
 
 export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, config }, ref) => {
 
-  if(!paragraphs){
+  if(!paragraphs && !config){
     return <Loading />
   }
 
@@ -27,7 +27,7 @@ export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, 
       }}
       className={style.content}
     >
-      {paragraphs.map((paragraph, index) =>
+      {paragraphs && paragraphs.map((paragraph, index) =>
         <p key={index} style={{
           fontSize: `${config.fontSize}px`,
           lineHeight: `${config.lineHeight}px`,
