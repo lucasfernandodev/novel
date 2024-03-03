@@ -69,8 +69,8 @@ export const CustomizeChapterStyle: FC<IProps> = ({
     { value: 16, label: "16" },
     { value: 18, label: "18" },
     { value: 24, label: "24" },
-    { value: 24, label: "26" },
-    { value: 24, label: "32" }
+    { value: 26, label: "26" },
+    { value: 32, label: "32" }
   ]
 
   function toggleVisibility(e: React.MouseEvent<HTMLElement, MouseEvent>) {
