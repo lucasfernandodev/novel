@@ -12,7 +12,7 @@ export const useChapterTextStyle = () => {
   const defaultStyle: IChapterTextStyle = {
     fontFamily: 'Roboto, sans-serif',
     fontSize: 16,
-    lineHeight: 28,
+    lineHeight: 26,
     gap: 16
   }
 
