@@ -1,16 +1,15 @@
-
-.chapterController{
+.chapterController {
   display: flex;
   justify-content: space-between;
   margin: 32px auto;
 }
 
-.chapterController:last-child{
-  margin: 32px  auto 64px;
+.chapterController:last-child {
+  margin: 32px auto 64px;
 }
 
-.chapterController button, 
-.chapterController a{
+.chapterController>button,
+.chapterController>a {
   padding: 0px 24px;
   font-size: 1.4rem;
   border-radius: 30px;
@@ -27,15 +26,82 @@
   text-decoration: none;
 }
 
-.chapterController button:disabled,
-.chapterController a[data-disabled="true"]{
+.chapterController>button:disabled,
+.chapterController>a[data-disabled="true"] {
   color: var(--gray-400);
   background-color: var(--gray-600);
   cursor: default;
   user-select: none;
 }
 
-.chapterController button svg{
+.chapterController button svg {
   width: 17px;
   height: auto;
+}
+
+/* Chapter List */
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(5, 3, 7, 85%);
+  z-index: 500;
+}
+
+.chapterList {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--black-400);
+  z-index: 1000;
+  width: 343px;
+  max-height: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+  border-radius: 10px;
+  list-style: none;
+}
+
+.chapterList li a {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  height: 54px;
+  border-bottom: 1px solid var(--gray-600);
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--white)
+}
+
+.chapterList li:last-child a {
+  border-color: transparent;
+}
+
+.chapterList::-webkit-scrollbar {
+  width: 8px;
+  background: var(--gray-300);
+  border-radius: 10px;
+}
+
+.chapterList::-webkit-scrollbar-button {
+  display: none;
+}
+
+.chapterList::-webkit-scrollbar-thumb {
+  background: var(--gray-400);
+  border-radius: 12px;
+}
+
+.chapterList::-webkit-scrollbar-corner {
+  display: none;
+}
+
+.chapterList::-webkit-resizer {
+  display: none;
 }

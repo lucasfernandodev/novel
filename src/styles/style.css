@@ -1,14 +1,16 @@
-*,*::before,*:after{
+*,
+*::before,
+*:after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html{ 
+html {
   font-size: 62.5%;
 }
 
-body{
+body {
   font-optical-sizing: auto;
   line-height: 1;
   font-size: 1.6rem;
@@ -19,17 +21,33 @@ body{
   color: var(--body-color);
 }
 
-input, button{
+input,
+button {
   font-family: var(--font-default);
   color: var(--body-color);
 }
 
-button{
+button {
   background: transparent;
 }
 
-img{
+img {
   width: 100%;
   max-width: 100%;
   height: auto
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--black-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--black-400);
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-resizer,
+::-webkit-scrollbar-button {
+  display: none
 }
