@@ -809,7 +809,15 @@
       "id": "d6dc"
     }
   ],
-  "library": [],
+  "library": [
+    {
+      "id": "70d6",
+      "avatarUrl": "https://upload.wikimedia.org/wikipedia/pt/7/74/1984cover.jpg",
+      "title": "1984",
+      "lastChapterId": null,
+      "updateAt": "2024-03-04T05:41:17.961Z"
+    }
+  ],
   "novels": [
     {
       "avatarUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg/800px-The_Great_Gatsby_Cover_1925_Retouched.jpg",

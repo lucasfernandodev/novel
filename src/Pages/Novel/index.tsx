@@ -5,7 +5,6 @@ import { IconFlag, IconInfo } from '../../assets/icons';
 import { Sinopse } from '@components/Sinopse';
 import { GridBooksRecomendations } from '@components/GridBooksRecomendations';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { generateSlug } from '../../utils/generateSlug';
 import { NovelPageButtonsActions } from '@components/NovelPageButtonsActions';
 import { ModalBottom } from '@components/ModalBottom';
@@ -14,14 +13,20 @@ import { FullBookDetails } from '@components/FullBookDetails';
 import { Tags } from '@components/Tags';
 import { TableChapterContent } from '@components/TableChapterContent';
 import { TabContent, TabList, TabTrigger, Tabs } from '@/Components/Tabs';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
 export const Novel = () => {
 
-  const [search,] = useSearchParams();
+  const navigate = useNavigate()
+  const {novelId: novelId} = useParams();
   const [data, setData] = useState({} as INovel);
   const [showBottomModal, setShowBottomModal] = useState(false);
+
+  if(!novelId){
+    navigate("/")
+  }
 
   useEffect(() => {
     async function getNovel() {
@@ -31,7 +36,7 @@ export const Novel = () => {
       if (list.length > 0) {
         for (const novel of list) {
           const currentSlug = generateSlug(novel.title);
-          if (currentSlug === search.get('id')) {
+          if (currentSlug === novelId) {
             setData(novel); break;
           }
         }
@@ -39,7 +44,7 @@ export const Novel = () => {
     }
 
     getNovel().catch(console.error)
-  }, [search])
+  }, [novelId])
 
 
   function toggleModalVisibility() {
@@ -103,7 +108,8 @@ export const Novel = () => {
           <GridBooksRecomendations />
         </TabContent>
         <TabContent value='chapters'>
-          <TableChapterContent />
+          <TableChapterContent novelId={novelId as string}
+          />
         </TabContent>
       </Tabs>
     </Layout >

@@ -2,7 +2,7 @@ import { Layout } from "@/layout/Layout"
 import style from './style.module.css';
 import { useQuery } from "react-query";
 import { useApi } from "@/Hook/useApi";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { IChapter } from "@/types/chapter";
 import { ChapterContent } from "@/Components/ChapterContent";
 import { useEffect, useRef, useState } from "react";
@@ -15,22 +15,21 @@ export const Chapter = () => {
 
   const api = useApi()
   const navigate = useNavigate()
-  const [search,] = useSearchParams();
-  const currentChapterId = search.get('id') as string
+  const {novelId, chapterId: currentChapterId} = useParams();
   const { config, preview, changeConfig, changePreviewConfig } = useChapterTextStyle()
   const contentRef = useRef<HTMLDivElement>(null)
-
-  if (!search.get('id')) {
-    navigate("/")
-  }
 
   const [chapter, setChapter] = useState<IChapter | null>(null);
   const [showModal, setShowModal] = useState(false)
 
 
   const { data, isLoading } = useQuery<IChapter>(
-    ['chapter', currentChapterId], () => api.getChapterPage(currentChapterId)
+    ['chapter', currentChapterId], () => api.getChapterPage(currentChapterId as string)
   )
+
+  if (!currentChapterId || !isLoading && typeof data === 'undefined') {
+    navigate(`/novel/${novelId}`)
+  }
 
 
   useEffect(() => {

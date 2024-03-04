@@ -1,6 +1,6 @@
-import { FC, useEffect, useState } from 'react';
 import style from './style.module.css';
-import { useNavigate } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IconList } from '@/assets/icons';
 
 interface IProps {
@@ -14,6 +14,7 @@ interface IProps {
 export const ChapterController: FC<IProps> = ({ nav }) => {
 
   const navigate = useNavigate()
+  const {novelId} = useParams()
   const [prevChapter, setPrevChapter] = useState<string | null>(null);
   const [nextChapter, setNextChapter] = useState<string | null>(null);
 
@@ -30,10 +31,10 @@ export const ChapterController: FC<IProps> = ({ nav }) => {
 
   useEffect(() => {
     if (nav) {
-      setPrevChapter(nav.prev ? `/chapter?id=${nav.prev}` : null);
-      setNextChapter(nav.next ? `/chapter?id=${nav.next}` : null);
+      setPrevChapter(nav.prev ? `/novel/${novelId}/chapter/${nav.prev}` : null);
+      setNextChapter(nav.next ? `/novel/${novelId}/chapter/${nav.next}` : null);
     }
-  }, [nav])
+  }, [nav, novelId])
 
   return (
     <div className={style.chapterController}>

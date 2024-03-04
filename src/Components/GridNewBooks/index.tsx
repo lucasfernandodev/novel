@@ -22,7 +22,7 @@ export const GridNewBooks = () => {
       <div className={style.wrapper}>
         {data.length
           > 0 && data.slice(0, 6).map((novel: INovel) => (
-            <Link to={`/novel?id=${generateSlug(novel.title)}`} key={novel.id} className={style.grid__book}>
+            <Link to={`/novel/${generateSlug(novel.title)}`} key={novel.id} className={style.grid__book}>
               <div className={style.container}>
                 <Thumbnail src={novel.avatarUrl} alt={novel.title} />
               </div>

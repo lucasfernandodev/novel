@@ -9,7 +9,8 @@ interface IChapter {
   url: string,
   timeago: string
 }
-export const TableChapterContent = () => {
+
+export const TableChapterContent = ({novelId}: {novelId: string}) => {
   const [data, setData] = useState([] as IChapter[]);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const TableChapterContent = () => {
         {data && order && chapters.map(chapter => {
           return (
             <li key={chapter.title}>
-              <Link to="/chapter?id=chapter1">{chapter.title}</Link>
+              <Link to={`/novel/${novelId}/chapter/chapter1`}>{chapter.title}</Link>
               <span>{chapter.timeago}</span>
             </li>
           )

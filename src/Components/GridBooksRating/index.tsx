@@ -24,7 +24,7 @@ export const GridBooksRating = () => {
       <div className={style.wrapper}>
         {data.length
           > 0 && data.slice(0, 10).map((novel: INovel) => (
-            <Link key={novel.id} to={`/novel?id=${generateSlug(novel.title)}`} className={style.grid__book}>
+            <Link key={novel.id} to={`/novel/${generateSlug(novel.title)}`} className={style.grid__book}>
               <div className={style.container}>
                 <Thumbnail className={style.thumbnail} src={novel.avatarUrl} alt={novel.title} />
               </div>

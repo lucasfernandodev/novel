@@ -97,7 +97,7 @@ export const Library = () => {
           {isLoading && <Loading />}
           {!isLoading && novels.length === 0 && <EmptyLibrary />}
           {!isLoading && novels.length > 0 && novels.map(novel => {
-            const url = `/novel?id=${generateSlug(novel.title)}`
+            const url = `/novel/${generateSlug(novel.title)}`
             return (
               <div
                 data-selected={forRemoving.includes(novel.id) ? true : false}

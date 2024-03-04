@@ -22,12 +22,12 @@ const router = createBrowserRouter([
     element: <SignIn />
   },
   {
-    path: "/novel",
-    element: <Novel />,
+    path: "/novel/:novelId/chapter/:chapterId",
+    element: <Chapter />,
   },
   {
-    path: "/chapter",
-    element: <Chapter />
+    path: "/novel/:novelId",
+    element: <Novel />,
   },
   {
     path: "/biblioteca",

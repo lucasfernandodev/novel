@@ -23,7 +23,7 @@ export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, 
     });
    }, [config.fontFamily]);
 
-  if(!paragraphs && !config){
+  if(!paragraphs || !paragraphs && !config){
     return <Loading />
   }
 
