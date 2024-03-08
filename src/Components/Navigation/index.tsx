@@ -24,7 +24,7 @@ export const Navigation: React.FC<IPropsNavigation> = ({ closeMenu }) => {
       <div className={style.wrapper}>
         {user ? <div className={style.userProfile}>
           <div className={style.col}>
-            <Avatar src={user.avatarUrl ?? ''} alt={user.name} width={48} height={48} />
+            <Avatar src={user.avatar ?? ''} alt={user.name} width={48} height={48} />
           </div>
           <div className={style.col}>
             <div className={style.info}>

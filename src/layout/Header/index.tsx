@@ -1,6 +1,6 @@
+import style from './style.module.css';
 import { useState } from 'react';
 import { Navigation } from '@components/Navigation';
-import style from './style.module.css';
 import { Link } from '../Link';
 import { Avatar } from '@components/Avatar';
 import { useAuth } from '../../Hook/useAuth';
@@ -21,7 +21,7 @@ export const Header = () => {
       <form className={style.form__search}>
         <input type="text" className={style.search} placeholder='Buscar por título, autor, editora, gênero...' />
       </form>
-      <Avatar src={user?.avatarUrl ?? ''} alt={user?.name ?? 'Image not loaded'} onClick={toggleNavigationMenu} />
+      <Avatar src={user?.avatar ?? ''} alt={user?.name ?? 'Image not loaded'} onClick={toggleNavigationMenu} />
       {isOpen && <Navigation closeMenu={setIsOpen} />}
     </header>
   )

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { AuthContext } from "./AuthContext"
 import { User } from "../../types/user"
 import { useApi } from "../../Hook/useApi"
+import { jwtDecode } from 'jwt-decode'
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
@@ -14,7 +15,11 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
       const storageData = localStorage.getItem('token');
       if (storageData) {
         const data = await api.validateToken(storageData);
-        setUser(data.user)
+        if (data && data.success === true) {
+          const {payload: user} = jwtDecode<{payload: User}>(storageData)
+          setUser(user)
+        }
+
         setLoading(false)
       }
     };
@@ -30,6 +35,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
   const signin = async (email: string, password: string) => {
     const data = await api.signin(email, password);
+    if (!data) return false;
 
     if (data.user && data.token) {
       setUser(data.user);

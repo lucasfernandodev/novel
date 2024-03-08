@@ -16,7 +16,7 @@ export const Thumbnail: React.FC<IThumbnailProps> = ({ src, ...rest }) => {
     image.onerror = null;
     image.src = fallback
   }
-  console.log("Image not loading using source: ", src)
+
   return (
     <div className={style.thumbnail}>
       <img {...rest}
