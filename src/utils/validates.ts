@@ -40,7 +40,7 @@ export const validates:TValidates = {
 
     return log;
   },
-  username(username: string) {
+  name(username: string) {
     const log = {error: false} as { error: boolean, msg: string };
     const regex = /^(?=.*[a-zA-Z])\s*[a-zA-Z\s]*$/;
 

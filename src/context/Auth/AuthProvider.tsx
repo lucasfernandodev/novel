@@ -16,8 +16,12 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
       if (storageData) {
         const data = await api.validateToken(storageData);
         if (data && data.success === true) {
-          const {payload: user} = jwtDecode<{payload: User}>(storageData)
+          const { payload: user } = jwtDecode<{ payload: User }>(storageData)
           setUser(user)
+        }
+
+        if (storageData && !data) {
+          localStorage.removeItem('token')
         }
 
         setLoading(false)

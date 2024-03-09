@@ -3,24 +3,39 @@ import { Layout } from '../../layout/Layout';
 import { Link } from '../../layout/Link';
 import style from './style.module.css';
 import { useValidateForm } from '../../Hook/useValidateForm';
+import { useApi } from '@/Hook/useApi';
+import { useNavigate } from 'react-router-dom';
 
 export const SignUp = () => {
+
+  const api = useApi();
+  const navigate = useNavigate();
 
   const ref = useRef<HTMLFormElement>(null);
 
   const { validate, errors } = useValidateForm()
 
-  function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
     if (ref.current) {
 
       const inputs = ref.current.querySelectorAll('input');
-      validate({ inputs: Array.from(inputs) })
+      const { fields } = validate({ inputs: Array.from(inputs) })
 
       // Não tem erro
       if (Object.keys(errors).length === 0) {
-        console.log("Não tem erro")
+        const avatar = 'https://mighty.tools/mockmind-api/content/cartoon/3.jpg'
+        const response = await api.signUp({
+          avatar,
+          name: fields.name,
+          email: fields.email,
+          password: fields.password
+        });
+
+        if (response.success === true) {
+          navigate("/")
+        }
       }
     }
   }
@@ -40,13 +55,13 @@ export const SignUp = () => {
           <fieldset>
             <input
               onChange={handleChange}
-              data-validade={errors.username ? false : true}
-              name="username"
+              data-validade={errors.name ? false : true}
+              name="name"
               className={style.input}
               placeholder='Nome de usuário'
               type="text"
             />
-            <p className={style.errorMessage}>{errors.username && errors.username.msg}</p>
+            <p className={style.errorMessage}>{errors.name && errors.name.msg}</p>
           </fieldset>
           <fieldset>
             <input

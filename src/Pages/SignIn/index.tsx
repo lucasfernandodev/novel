@@ -23,8 +23,8 @@ export const SignIn = () => {
       const password = ref.current.querySelector('input[name="password"]') as HTMLInputElement
 
       if (email && password) {
-        const _errors = validate({ inputs: [email, password] })
-     
+        const { _errors } = validate({ inputs: [email, password] })
+
         if (Object.keys(errors).length === 0 && Object.keys(_errors).length === 0) {
           const isLogged = await auth.signin(email.value, password.value);
           if (isLogged) {
