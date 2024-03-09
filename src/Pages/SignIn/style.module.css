@@ -66,6 +66,10 @@
   display: none
 }
 
+.form .serverError{
+  color: var(--red-400);
+}
+
 .form .input[data-validade="false"] + .errorMessage{
   display: inline-block;
 }

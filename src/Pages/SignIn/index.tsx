@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import style from './style.module.css';
 import { Link } from '../../layout/Link';
 import { Layout } from '../../layout/Layout';
@@ -10,13 +10,14 @@ export const SignIn = () => {
 
   const auth = useAuth()
   const ref = useRef<HTMLFormElement>(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [error, setError] = useState('')
 
   const { validate, errors } = useValidateForm()
 
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
-
+    setError('')
     if (ref.current) {
 
       const email = ref.current.querySelector('input[name="email"]') as HTMLInputElement;
@@ -26,13 +27,14 @@ export const SignIn = () => {
         const { _errors } = validate({ inputs: [email, password] })
 
         if (Object.keys(errors).length === 0 && Object.keys(_errors).length === 0) {
-          const isLogged = await auth.signin(email.value, password.value);
-          if (isLogged) {
+          const response = await auth.signin(email.value, password.value);
+          if (!response?.errorApiMessage) {
             navigate('/')
+          } else {
+            setError(response.errorApiMessage)
           }
         }
       }
-
     }
   }
 
@@ -68,7 +70,7 @@ export const SignIn = () => {
           />
           <p className={style.errorMessage}>{errors.password && errors.password.msg}</p>
         </fieldset>
-
+        <p className={style.serverError}>{error}</p>
         <button onClick={handleSubmit} type="submit">Entrar</button>
         <p>Ainda não tem uma conta? <Link to="/cadastrar">Criar Conta</Link></p>
       </form>

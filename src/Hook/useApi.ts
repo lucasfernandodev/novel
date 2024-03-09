@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { User as UserType } from '../types/user';
 import { ILibraryNovel } from '../types/novel';
-import { jwtDecode } from "jwt-decode";
 
 export const API = axios.create({
   baseURL: import.meta.env.REACT_APP_API || 'http://192.168.1.5:4000',
@@ -38,26 +36,6 @@ export const useApi = () => ({
         token
       })
       return response.data
-    } catch (error) {
-      return null
-    }
-  },
-
-  signin: async (email: string, password: string): Promise<{ user: UserType, token: string } | null> => {
-    try {
-      const response = await API.post('/user/login', {
-        email,
-        password,
-      })
-
-      const { token: jwtToken } = response.data
-      const { payload: user } = jwtDecode<{ payload: UserType }>(jwtToken);
-
-      return {
-        token: jwtToken,
-        user: user
-      }
-
     } catch (error) {
       return null
     }

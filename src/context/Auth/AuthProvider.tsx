@@ -3,12 +3,14 @@ import { AuthContext } from "./AuthContext"
 import { User } from "../../types/user"
 import { useApi } from "../../Hook/useApi"
 import { jwtDecode } from 'jwt-decode'
+import { userService } from "@/services/user-service"
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const api = useApi();
+  const service = userService()
 
   useEffect(() => {
     const valdiateToken = async () => {
@@ -38,16 +40,15 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
 
   const signin = async (email: string, password: string) => {
-    const data = await api.signin(email, password);
-    if (!data) return false;
-
-    if (data.user && data.token) {
-      setUser(data.user);
-      setToken(data.token)
-      return true;
+    const data = await service.signIn({ email, password });
+    if(data.success === true){
+      data.token && setToken(data.token)
+      data.user && setUser(data.user)
+    }else{
+      return {
+        errorApiMessage: data.msg
+      }
     }
-
-    return false;
   }
 
   const setToken = (token: string) => {
