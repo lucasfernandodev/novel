@@ -1,15 +1,16 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Layout } from '../../layout/Layout';
 import { Link } from '../../layout/Link';
 import style from './style.module.css';
 import { useValidateForm } from '../../Hook/useValidateForm';
-import { useApi } from '@/Hook/useApi';
 import { useNavigate } from 'react-router-dom';
+import { userService } from '@/services/user-service';
 
 export const SignUp = () => {
 
-  const api = useApi();
+  const service = userService()
   const navigate = useNavigate();
+  const [error, setError] = useState('')
 
   const ref = useRef<HTMLFormElement>(null);
 
@@ -17,7 +18,7 @@ export const SignUp = () => {
 
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
-
+    setError('')
     if (ref.current) {
 
       const inputs = ref.current.querySelectorAll('input');
@@ -26,7 +27,7 @@ export const SignUp = () => {
       // Não tem erro
       if (Object.keys(errors).length === 0) {
         const avatar = 'https://mighty.tools/mockmind-api/content/cartoon/3.jpg'
-        const response = await api.signUp({
+        const response = await service.signUp({
           avatar,
           name: fields.name,
           email: fields.email,
@@ -34,7 +35,9 @@ export const SignUp = () => {
         });
 
         if (response.success === true) {
-          navigate("/")
+          navigate("/login")
+        }else{
+          response.msg && setError(response.msg)
         }
       }
     }
@@ -86,6 +89,7 @@ export const SignUp = () => {
             <p className={style.errorMessage}>{errors.password && errors.password.msg}</p>
           </fieldset>
         </div>
+        <p className={style.apiError}>{error}</p>
         <button onClick={handleSubmit} type="submit">Criar conta</button>
         <p>Já tem uma conta? <Link to="/login">Fazer login</Link></p>
       </form>

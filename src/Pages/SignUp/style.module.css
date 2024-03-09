@@ -51,7 +51,7 @@
   font-weight: 500;
   color: var(--gray-400)
 }
-
+w
 .form .input:focus{
   outline: 1px solid var(--black-400);
 }
@@ -64,6 +64,10 @@
 .form .errorMessage{
   color: var(--red-400);
   display: none
+}
+
+.apiError{
+  color: var(--red-400);
 }
 
 .form .input[data-validade="false"] + .errorMessage{

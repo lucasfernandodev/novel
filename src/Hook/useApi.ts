@@ -41,23 +41,6 @@ export const useApi = () => ({
     }
   },
 
-  signUp: async ({ avatar, name, email, password }: ISignUp): Promise<{ success: boolean, msg?: string }> => {
-    try {
-      const response = await API.post('/user', {
-        avatar,
-        name,
-        email,
-        password
-      })
-
-      return response.data
-    } catch (error: unknown) {
-      const { data } = error as { data: { msg: string, success: boolean } };
-      console.log("CREATE USER ERROR", error)
-      return data
-    }
-  },
-
   logout: async () => {
     return new Promise((sucess) => {
       sucess({ status: true })
