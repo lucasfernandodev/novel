@@ -77,8 +77,7 @@ export const NovelTemplate = ({ novel }: IProps) => {
           <GridBooksRecomendations />
         </TabContent>
         <TabContent value='chapters'>
-          <TableChapterContent novelslug={novel.slug} chapters={novel.chapters}
-          />
+          <TableChapterContent novelslug={novel.slug} chapters={novel.chapters}/>
         </TabContent>
       </Tabs>
     </div>

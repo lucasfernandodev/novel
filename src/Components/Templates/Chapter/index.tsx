@@ -53,12 +53,16 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
       contentEl && contentEl.removeEventListener('touchend', showModalInMobile);
       contentEl && contentEl.removeEventListener('dblclick', showModal)
     }
-  }, [chapter.id])
+  }, [chapter?.id])
 
   if(isLoading){
     return <Loading />
   }
 
+  if(!isLoading && !chapter){
+    return <h1>Capítulo não encontrado!</h1>
+  }
+  
   return (
     <div className={style.layout}>
       <h1 className={style.title} style={{ fontFamily: config.fontFamily }}>

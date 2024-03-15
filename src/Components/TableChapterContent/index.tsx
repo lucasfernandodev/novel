@@ -42,7 +42,7 @@ export const TableChapterContent = ({
         })}
 
       </ul>
-      {chaptersData.length > 10 && <div className={style.pagination}>
+      {chaptersData && chaptersData.length > 10 && <div className={style.pagination}>
         {
           chaptersData && pages.map((i, index) => {
             return (
