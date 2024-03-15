@@ -17,6 +17,7 @@
   border: none;
   color: var(--gray-400);
   font-size: 1.4rem;
+  cursor: pointer;
 }
 
 .sinopse .content{

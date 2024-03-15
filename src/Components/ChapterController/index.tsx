@@ -56,7 +56,6 @@ export const ChapterController: FC<IProps> = ({ nav }) => {
 
   function toggleVisibility(e: React.MouseEvent<HTMLElement, MouseEvent>) {
     e.preventDefault()
-    console.log(e.target)
     const modal = e.target as HTMLElement
     if (modal && typeof modal.dataset.root !== 'undefined') {
       setModalShow(false)

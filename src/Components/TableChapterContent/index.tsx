@@ -1,32 +1,26 @@
 import { IconOrderByOld, IconOrderByRecent } from '../../assets/icons';
 import style from './style.module.css';
-import { useEffect, useState } from 'react';
 import { usePagination } from '../../Hook/usePagination';
 import { Link } from '../../layout/Link';
+import { INovelChapter } from '@/types/novel';
 
-interface IChapter {
-  title: string,
-  url: string,
-  timeago: string
+interface TableChapterContentProps {
+  novelslug: string,
+  chapters: INovelChapter[];
 }
 
-export const TableChapterContent = ({novelId}: {novelId: string}) => {
-  const [data, setData] = useState([] as IChapter[]);
-
-  useEffect(() => {
-    async function getChapters() {
-      const req = await fetch("http://192.168.1.5:3000/chapters");
-      const chapters = await req.json() as [];
-      if (chapters.length) {
-        setData(chapters);
-      }
-
-    }
-
-    getChapters().catch(console.error)
-  }, [])
-
-  const { changePage, chapters,order, toggleOrder, currentPage, lastPage, pages } = usePagination({ chapters: data })
+export const TableChapterContent = ({
+  novelslug,
+  chapters: chaptersData
+}: TableChapterContentProps) => {
+  const {
+    changePage,
+    chapters,
+    order,
+    toggleOrder,
+    currentPage,
+    lastPage,
+    pages } = usePagination({ chapters: chaptersData })
 
   return (
     <div className={style.chaperList}>
@@ -35,27 +29,29 @@ export const TableChapterContent = ({novelId}: {novelId: string}) => {
         <button onClick={toggleOrder}>
           {order === 'oldest' && <IconOrderByOld />}
           {order === 'newest' && <IconOrderByRecent />}
-          </button>
+        </button>
       </div>
       <ul>
-        {data && order && chapters.map(chapter => {
+        {chaptersData && order && chapters.map(chapter => {
           return (
             <li key={chapter.title}>
-              <Link to={`/novel/${novelId}/chapter/chapter1`}>{chapter.title}</Link>
-              <span>{chapter.timeago}</span>
+              <Link to={`/novel/${novelslug}/chapter/${chapter.id}`}>{chapter.title}</Link>
+              <span>10h</span>
             </li>
           )
         })}
 
       </ul>
-      <div className={style.pagination}>
+      {chaptersData.length > 10 && <div className={style.pagination}>
         {
-          data && pages.map((i, index) => {
+          chaptersData && pages.map((i, index) => {
             return (
               <span
+                key={index}
                 data-active={i === currentPage ? "true" : "false"}
                 onClick={() => changePage(i, index)}
-                className={style.item}>
+                className={style.item}
+              >
                 {i}
               </span>)
           })
@@ -67,7 +63,7 @@ export const TableChapterContent = ({novelId}: {novelId: string}) => {
           onClick={() => changePage(lastPage, null)}>
           {lastPage}
         </span>
-      </div>
+      </div>}
     </div>
   )
 }

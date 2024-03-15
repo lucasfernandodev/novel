@@ -1,7 +1,14 @@
+export interface INovelChapter {
+  id: string;
+  title: string;
+  position: string,
+}
+
 export interface INovel {
+  slug: string;
   id: string,
   title: string,
-  description: string,
+  sinopse: string[],
   author: string
   main_genre: string,
   status: string,
@@ -11,7 +18,8 @@ export interface INovel {
   qtd_chapters: string,
   publisher: string,
   rating: string,
-  avatarUrl: string;
+  thumbnail: string;
+  chapters: INovelChapter[]
 }
 
 export interface ILibraryNovel{

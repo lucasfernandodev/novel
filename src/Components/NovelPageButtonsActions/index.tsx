@@ -1,36 +1,39 @@
 import { FC, useEffect, useState } from 'react';
 import { IconHeart } from '../../assets/icons';
 import style from './style.module.css';
-import { ILibraryNovel } from '../../types/novel';
-import { useApi } from '../../Hook/useApi';
+import { INovel } from '../../types/novel';
 import { useQuery } from 'react-query';
+import { libraryApi } from '@/api/library-api';
 
 interface IProps {
-  novel: Omit<ILibraryNovel, 'id'>;
+  novel: INovel,
+  userId: string;
 }
 
-export const NovelPageButtonsActions: FC<IProps> = ({ novel }) => {
+export const NovelPageButtonsActions: FC<IProps> = ({ novel, userId }) => {
 
   const [showButtons, setShowwButtons] = useState(true);
   const [isNovelAddedToLibrary, setIsNovelAddedToLibrary] = useState(false)
-  const api = useApi();
-  
-  const { isLoading, data } = useQuery('library-itens-fetch', api.getLibraryContent)
+
+  const { isLoading, data } = useQuery('library-itens-fetch',
+    () => libraryApi.isBookInLibrary({ userId: userId as string, novelId: novel.id })
+  )
 
   useEffect(() => {
     if (!isLoading && data) {
-      setIsNovelAddedToLibrary((data.filter(n => n.title === novel.title).length > 0) ? true : false)
+      if (data.isBookInLibrary === true) {
+        setIsNovelAddedToLibrary(true)
+      }
     }
-  }, [data, isLoading, novel])
+  }, [data, isLoading])
 
   async function addForLibrary(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     const button = e.currentTarget as HTMLButtonElement;
     if (button.classList.contains(style.favorited)) {
-      const currentNovel = data?.filter(n => n.title === novel.title) as ILibraryNovel[]
-      await api.removeBookForLibrary(currentNovel[0].id)
+      await libraryApi.remove({ userId: userId, novelId: novel.id })
       button.classList.remove(style.favorited)
     } else {
-      await api.addForLibrary(novel)
+      await libraryApi.add({ userId: userId, novelId: novel.id })
       button.classList.add(style.favorited)
     }
   }

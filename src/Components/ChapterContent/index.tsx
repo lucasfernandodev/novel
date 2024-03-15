@@ -2,9 +2,10 @@ import style from './style.module.css';
 import { HTMLAttributes, forwardRef, useEffect } from 'react';
 import { Loading } from '../Loading';
 import webfont from 'webfontloader'
+import { IContent } from '@/types/chapter';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  paragraphs: string[] | null | undefined,
+  paragraphs: IContent[] | undefined,
   config: {
     fontFamily: string,
     fontSize: number,
@@ -36,11 +37,11 @@ export const ChapterContent = forwardRef<HTMLDivElement, IProps>(({ paragraphs, 
       }}
       className={style.content}
     >
-      {paragraphs && paragraphs.map((paragraph, index) =>
-        <p key={index} style={{
+      {paragraphs && paragraphs.map(content =>
+        <p key={content.id} style={{
           fontSize: `${config.fontSize}px`,
           lineHeight: `${config.lineHeight}px`,
-        }}>{paragraph}</p>
+        }}>{content.paragraph}</p>
       )}
     </div>
   )

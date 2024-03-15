@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react';
 import { IconOrderByOld, IconOrderByRecent, IconTrash } from '../../assets/icons';
 import { Layout } from '../../layout/Layout';
 import { useQuery } from 'react-query';
-import { useApi } from '../../Hook/useApi';
-import { ILibraryNovel } from '../../types/novel';
 import { Loading } from '@components/Loading';
 import { generateSlug } from '../../utils/generateSlug';
 import { Thumbnail } from '@components/Thumbnail';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@/Hook/useAuth';
+import { User } from '@/types/user';
+import { ILibraryData, libraryApi } from '@/api/library-api';
 
 
 
@@ -23,19 +24,23 @@ const EmptyLibrary = () => {
 
 export const Library = () => {
 
-  const api = useApi()
+  const { user } = useAuth() as { user: User }
   const navigate = useNavigate()
-  const [novels, setNovels] = useState<ILibraryNovel[]>([] as ILibraryNovel[])
+  const [novels, setNovels] = useState<ILibraryData[]>([] as ILibraryData[])
   const [isSelected, setIsSelected] = useState(false);
   const [forRemoving, setForRemoving] = useState<string[]>([])
-  const { isLoading, data } = useQuery('library-fetch', api.getLibraryContent)
+
+
+  const { isLoading, data, refetch } = useQuery('library-fetch',
+    async () => await libraryApi.getAll({ userId: user.id })
+  )
   const [order, setOrder] = useState<'newest' | 'oldest'>("newest");
 
   useEffect(() => {
     if (!isLoading && data) {
       setNovels(data)
     }
-  }, [data, isLoading])
+  }, [data, isLoading]);
 
   function toggleSelectedMode() {
     setIsSelected(!isSelected)
@@ -58,11 +63,13 @@ export const Library = () => {
     let listFiltered = novels;
     for (const novelId of forRemoving) {
       listFiltered = listFiltered.filter(novel => novel.id !== novelId)
-      await api.removeBookForLibrary(novelId)
+      await libraryApi.remove({ userId: user.id, novelId: novelId, })
     }
-    setNovels(listFiltered)
+
+    setNovels(() => ({...listFiltered}))
     setIsSelected(false)
     setForRemoving([])
+    refetch()
   }
 
   function inverteOrdering() {
@@ -96,7 +103,8 @@ export const Library = () => {
         <div className={style.wrapper}>
           {isLoading && <Loading />}
           {!isLoading && novels.length === 0 && <EmptyLibrary />}
-          {!isLoading && novels.length > 0 && novels.map(novel => {
+          {!isLoading && novels.length > 0 && novels.map(data => {
+            const novel = data.novel
             const url = `/novel/${generateSlug(novel.title)}`
             return (
               <div
@@ -112,7 +120,7 @@ export const Library = () => {
                         onChange={e => setNovelForRemoving(novel.id, e.currentTarget.checked ? 'add' : 'remove')}
                         type="checkbox" id={novel.id} />
                     </label>}
-                  {<Thumbnail src={novel.avatarUrl} alt={novel.title} />}
+                  {<Thumbnail src={novel.thumbnail} alt={novel.title} />}
                 </div>
                 <h3 className={style.title}>{novel.title}</h3>
               </div>

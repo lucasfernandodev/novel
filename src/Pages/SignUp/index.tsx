@@ -4,11 +4,10 @@ import { Link } from '../../layout/Link';
 import style from './style.module.css';
 import { useValidateForm } from '../../Hook/useValidateForm';
 import { useNavigate } from 'react-router-dom';
-import { userService } from '@/services/user-service';
+import { userAPI } from '@/api/user-api';
 
 export const SignUp = () => {
 
-  const service = userService()
   const navigate = useNavigate();
   const [error, setError] = useState('')
 
@@ -27,7 +26,7 @@ export const SignUp = () => {
       // Não tem erro
       if (Object.keys(errors).length === 0) {
         const avatar = 'https://mighty.tools/mockmind-api/content/cartoon/3.jpg'
-        const response = await service.signUp({
+        const response = await userAPI.signUp({
           avatar,
           name: fields.name,
           email: fields.email,
