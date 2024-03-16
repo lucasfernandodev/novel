@@ -5,19 +5,22 @@ import { IconList } from '@/assets/icons';
 import { useMutation } from 'react-query';
 import { IChapter } from '@/types/chapter';
 import { Link } from '@/layout/Link';
+import { chapterApi } from '@/api/chapter-api';
 
 interface IProps {
+  novelId: string,
   nav: {
     prev: string | null,
     next: string | null
-  }
+  },
+  chapterId: string
 }
 
 
-export const ChapterController: FC<IProps> = ({ nav }) => {
+export const ChapterController: FC<IProps> = ({ nav, novelId, chapterId }) => {
 
   const navigate = useNavigate()
-  const { novelId } = useParams()
+  const { slug } = useParams();
   const [prevChapter, setPrevChapter] = useState<string | null>(null);
   const [nextChapter, setNextChapter] = useState<string | null>(null);
   const [chapterList, setChapterList] = useState([])
@@ -35,17 +38,13 @@ export const ChapterController: FC<IProps> = ({ nav }) => {
     prevChapter && navigate(prevChapter)
   }
 
-  async function exec() {
-    const response = await fetch('http://192.168.1.5:3000/chapters');
-    const data = response.json();
-    return data;
-  }
-
-  const { isLoading, data, mutate } = useMutation('loading', exec);
+  const { isLoading, data, mutate } = useMutation('modal-chapter-list',
+    async () => await chapterApi.list({ novelId })
+  );
 
   useEffect(() => {
     if (!isLoading && data) {
-      setChapterList(data)
+      setChapterList(data.results)
     }
   }, [data, isLoading])
 
@@ -74,9 +73,11 @@ export const ChapterController: FC<IProps> = ({ nav }) => {
       {modaShow === true && <div onClick={toggleVisibility} data-root="true" className={style.modal}>
         <ul className={style.chapterList}>
           {chapterList && chapterList.map((ch: IChapter) => {
+            const chapterUrl = `/novel/${slug}/chapter/${ch.id}`;
+            const isCurrentChapter = ch.id === chapterId ? true : false
             return (
               <li key={ch.title}>
-                <Link to={`/novel/${novelId}/chapter/${ch.id}`}>{ch.title}</Link>
+                <Link className={isCurrentChapter ? style.active : ''} to={chapterUrl}>{ch.title}</Link>
               </li>
             )
           })}

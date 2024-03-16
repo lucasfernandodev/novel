@@ -62,14 +62,18 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
   if(!isLoading && !chapter){
     return <h1>Capítulo não encontrado!</h1>
   }
-  
+
   return (
     <div className={style.layout}>
       <h1 className={style.title} style={{ fontFamily: config.fontFamily }}>
         {chapter.title}
       </h1>
 
-      <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
+      <ChapterController 
+      novelId={chapter.novelId} 
+      chapterId={chapter.id}
+      nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }}
+       />
 
       <ChapterContent
         ref={contentRef}
@@ -77,7 +81,7 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
         paragraphs={chapter?.content}
       />
 
-      <ChapterController nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
+      <ChapterController      chapterId={chapter.id} novelId={chapter.novelId} nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
 
       {showModal && <CustomizeChapterStyle
         config={config}

@@ -16,7 +16,7 @@ export const RequeireAuth = ({ children }: { children: JSX.Element }) => {
 
 
   if (!user || loading) {
-    return <></>
+    return <>Loading...</>
   }
 
   return <>{children}</>

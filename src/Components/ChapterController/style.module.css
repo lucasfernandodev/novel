@@ -61,7 +61,7 @@
   width: 343px;
   max-height: 500px;
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 10px;
   list-style: none;
 }
@@ -77,6 +77,14 @@
   white-space: nowrap;
   overflow: hidden;
   color: var(--white)
+}
+
+.chapterList li a.active{
+  background: var(--gray-400);
+  user-select: none;
+  cursor: default;
+  -moz-user-select: none;
+  pointer-events: none;
 }
 
 .chapterList li:last-child a {

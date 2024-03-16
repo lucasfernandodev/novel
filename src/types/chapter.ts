@@ -11,5 +11,6 @@ export interface IChapter{
   prev_chapter: string | null,
   next_chapter: string | null,
   createdAt: string;
-  updatedAt: string
+  updatedAt: string,
+  novelId: string
 }
