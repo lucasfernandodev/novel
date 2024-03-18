@@ -1,4 +1,4 @@
-import * as React from "react"
+
 
 const IconOrderByRecent = (props: React.SVGProps<SVGSVGElement>) => {
   return (

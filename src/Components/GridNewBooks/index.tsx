@@ -23,13 +23,13 @@ export const GridNewBooks = () => {
       <div className={style.wrapper}>
         {novels.length === 0 && 'Não existe ainda nenhuma novel no momento'}
         {novels.length > 0 && novels.map(novel => (
-            <Link to={`/novel/${generateSlug(novel.title)}`} key={novel.id} className={style.grid__book}>
-              <div className={style.container}>
-                <Thumbnail src={novel.thumbnail} alt={novel.title} />
-              </div>
-              <h3 className={style.title}>{novel.title}</h3>
-            </Link>
-          ))}
+          <Link to={`/novel/${generateSlug(novel.title)}`} key={novel.id} className={style.grid__book}>
+            <div className={style.container}>
+              <Thumbnail src={novel.thumbnail} alt={novel.title} />
+            </div>
+            <h3 className={style.title}>{novel.title}</h3>
+          </Link>
+        ))}
       </div>
     </section>
   )

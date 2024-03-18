@@ -12,7 +12,7 @@ import { Loading } from "@/Components/Loading";
 
 
 interface IProps {
-  chapterId:   string;
+  chapterId: string;
 }
 
 export const ChapterTemplate = ({ chapterId }: IProps) => {
@@ -22,8 +22,8 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
 
   const [chapter, setChapter] = useState<IChapter>({} as IChapter)
 
-  const { data, isLoading } = useQuery<{chapter: IChapter}>(
-    ['chapter', chapterId], async () => await chapterApi.get({chapterId: chapterId as string})
+  const { data, isLoading } = useQuery<{ chapter: IChapter }>(
+    ['chapter', chapterId], async () => await chapterApi.get({ chapterId: chapterId as string })
   )
 
   useEffect(() => {
@@ -55,11 +55,11 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
     }
   }, [chapter?.id])
 
-  if(isLoading){
+  if (isLoading) {
     return <Loading />
   }
 
-  if(!isLoading && !chapter){
+  if (!isLoading && !chapter) {
     return <h1>Capítulo não encontrado!</h1>
   }
 
@@ -69,11 +69,11 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
         {chapter.title}
       </h1>
 
-      <ChapterController 
-      novelId={chapter.novelId} 
-      chapterId={chapter.id}
-      nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }}
-       />
+      <ChapterController
+        novelId={chapter.novelId}
+        chapterId={chapter.id}
+        nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }}
+      />
 
       <ChapterContent
         ref={contentRef}
@@ -81,7 +81,11 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
         paragraphs={chapter?.content}
       />
 
-      <ChapterController      chapterId={chapter.id} novelId={chapter.novelId} nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }} />
+      <ChapterController
+        chapterId={chapter.id}
+        novelId={chapter.novelId}
+        nav={{ prev: chapter?.prev_chapter ?? null, next: chapter?.next_chapter ?? null }}
+      />
 
       {showModal && <CustomizeChapterStyle
         config={config}

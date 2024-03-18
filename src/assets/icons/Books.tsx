@@ -1,4 +1,4 @@
-import * as React from "react"
+
 
 const IconBooks =  (props: React.SVGProps<SVGSVGElement>) => (
   <svg

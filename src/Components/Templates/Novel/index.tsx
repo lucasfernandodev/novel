@@ -25,7 +25,7 @@ export const NovelTemplate = ({ novel }: IProps) => {
     setShowBottomModal(!showBottomModal)
   }
 
-  const {user} = useAuth()
+  const { user } = useAuth()
 
   return (
     <div className={style.novel}>
@@ -77,7 +77,7 @@ export const NovelTemplate = ({ novel }: IProps) => {
           <GridBooksRecomendations />
         </TabContent>
         <TabContent value='chapters'>
-          <TableChapterContent novelslug={novel.slug} chapters={novel.chapters}/>
+          <TableChapterContent novelslug={novel.slug} chapters={novel.chapters} />
         </TabContent>
       </Tabs>
     </div>

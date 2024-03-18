@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 import style from './style.module.css';
 
 interface IThumbnailProps extends HTMLAttributes<HTMLImageElement> {

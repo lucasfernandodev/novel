@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode, useContext, useEffect, useRef } from 'react';
+import { FC, HTMLAttributes, ReactNode, useContext, useEffect, useRef } from 'react';
 import style from './style.module.css';
 import { TabContext } from '@/context/Tabs/TabContext';
 import { TabProvider } from '@/context/Tabs/TabProvider';

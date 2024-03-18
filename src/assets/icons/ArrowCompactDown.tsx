@@ -1,4 +1,4 @@
-import * as React from "react"
+
 
 const IconArrowCompactDown= (props: React.SVGProps<SVGSVGElement>) => {
   return (
