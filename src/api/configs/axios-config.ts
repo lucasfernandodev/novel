@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 
 const api = axios.create({
-  baseURL: process.env.API_PORT || 'http://192.168.1.5:3000'
+  baseURL: 'http://192.168.1.5:4300'
 })
 
 function getErrorMessage(error: unknown) {
