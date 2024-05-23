@@ -1,25 +1,16 @@
-import { INovelChapter } from "@/types/novel";
 import { useEffect, useState } from "react"
 
 
 interface IPaginationPRops {
-  chapters: INovelChapter[];
-  orderBy?: 'newest' | 'oldest',
   size?: number,
+  totalCount?: number
 }
 
-export const usePagination = ({ chapters = [], orderBy = 'oldest', size = 6 }: IPaginationPRops) => {
-  const [data, setData] = useState<INovelChapter[]>(orderBy === 'newest' ? chapters.reverse() : chapters || [])
+export const usePagination = ({ size = 6, totalCount = 0 }: IPaginationPRops) => {
+
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pages, setPages] = useState<number[]>([]);
-  const [lastPage, setLastPage] = useState((chapters.length / 10))
-  const [order, setOrder] = useState<'newest' | 'oldest'>(orderBy)
-
-  function toggleOrder() {
-    setOrder(order === 'newest' ? 'oldest' : 'newest');
-    setData(data.reverse())
-  }
-
+  const [lastPage, setLastPage] = useState(Math.ceil(totalCount / 10))
 
   function changePage(indicator: number, index: number | null) {
 
@@ -45,16 +36,15 @@ export const usePagination = ({ chapters = [], orderBy = 'oldest', size = 6 }: I
   }
 
   useEffect(() => {
-
-    setData(chapters)
-    setLastPage((chapters.length / 10))
+    const lastPage = Math.ceil(totalCount / 10)
+    setLastPage(lastPage)
 
     const tmparr = [];
-    for (let i = 0; i < (chapters.length / 10); i++) {
+    for (let i = 0; i <= lastPage; i++) {
       tmparr.push(i + 1)
     }
     setPages(tmparr)
-  }, [chapters])
+  }, [totalCount])
 
 
   return {
@@ -62,8 +52,5 @@ export const usePagination = ({ chapters = [], orderBy = 'oldest', size = 6 }: I
     lastPage,
     changePage,
     currentPage,
-    chapters: data.slice((currentPage * 10) - 10, (currentPage * 10)),
-    toggleOrder,
-    order
   }
 }
