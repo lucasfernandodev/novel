@@ -6,31 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import { CustomizeChapterStyle } from "@/Components/CustomizeChapterStyle";
 import { IChapter } from "@/types/chapter";
 import { detectDoubleTapClosure } from "@/utils/detectDoubleTapClosure";
-import { useQuery } from "react-query";
-import { chapterApi } from "@/api/chapter-api";
-import { Loading } from "@/Components/Loading";
 
 
 interface IProps {
-  chapterId: string;
+  chapter: IChapter;
 }
 
-export const ChapterTemplate = ({ chapterId }: IProps) => {
+export const ChapterTemplate = ({ chapter }: IProps) => {
   const { config, preview, changeConfig, changePreviewConfig } = useChapterTextStyle()
   const [showModal, setShowModal] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const [chapter, setChapter] = useState<IChapter>({} as IChapter)
-
-  const { data, isLoading } = useQuery<{ chapter: IChapter }>(
-    ['chapter', chapterId], async () => await chapterApi.get({ chapterId: chapterId as string })
-  )
-
-  useEffect(() => {
-    if (!isLoading && data) {
-      setChapter(data.chapter);
-    }
-  }, [data, isLoading])
 
 
   useEffect(() => {
@@ -57,13 +43,7 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
     }
   }, [chapter?.id])
 
-  if (isLoading) {
-    return <Loading />
-  }
 
-  if (!isLoading && !chapter) {
-    return <h1>Capítulo não encontrado!</h1>
-  }
 
   return (
     <div className={style.layout}>

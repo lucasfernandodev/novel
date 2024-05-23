@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { usePersistState } from "./usePersistState"
-
-export interface IChapterTextStyle{
-  fontFamily: string,
-  fontSize: number,
-  lineHeight: number,
-  gap: number
-}
+import { ITextStyleConfig } from "@/types/text-style-config";
 
 export const useChapterTextStyle = () => {
-  const defaultStyle: IChapterTextStyle = {
+  const defaultStyle: ITextStyleConfig = {
     fontFamily: 'Roboto, sans-serif',
     fontSize: 16,
     lineHeight: 26,
     gap: 16
   }
 
-  const [config, setConfig] = usePersistState<IChapterTextStyle>('chapter-style-text', defaultStyle);
+  const [config, setConfig] = usePersistState<ITextStyleConfig>('chapter-style-text', defaultStyle);
   const [preview, setPreviewConfig] = useState(config)
 
   return {
