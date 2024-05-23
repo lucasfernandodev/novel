@@ -1,5 +1,5 @@
 import { Layout } from "@/layout/Layout"
-import { redirect, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ChapterTemplate } from "@/Components/Templates/Chapter";
 import { IChapter } from "@/types/chapter";
 import { chapterApi } from "@/api/chapter-api";
