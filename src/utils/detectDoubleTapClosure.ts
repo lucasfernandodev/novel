@@ -1,17 +1,19 @@
 export function detectDoubleTapClosure(fn: () => void) {
   let lastTap = 0;
-  let timeout: string | number | NodeJS.Timeout | undefined;
-  return function detectDoubleTap(event: TouchEvent) {
-    const curTime = new Date().getTime();
-    const tapLen = curTime - lastTap;
-    if (tapLen < 350 && tapLen > 0) {
+  let timer : string | number | NodeJS.Timeout | undefined;
+
+  return function detectDoubleTap(event: TouchEvent, timeDiff = 350) {
+    const currentTime = new Date().getTime();
+    const tapLen = currentTime - lastTap;
+    if (tapLen < timeDiff && tapLen > 0) {
       fn();
       event.preventDefault();
     } else {
-      timeout = setTimeout(() => {
-        clearTimeout(timeout);
-      }, 350);
+      timer = setTimeout(() => {
+        clearTimeout(timer);
+      }, timeDiff);
     }
-    lastTap = curTime;
+    
+    lastTap = currentTime;
   };
 }

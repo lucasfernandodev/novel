@@ -45,7 +45,9 @@ export const ChapterTemplate = ({ chapterId }: IProps) => {
 
     if (contentEl) {
       if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        contentEl.addEventListener('touchend', showModalInMobile, { passive: false });
+        contentEl.addEventListener('touchend', (event) => {
+          showModalInMobile(event, 150)
+        }, { passive: false });
       }
     }
 
