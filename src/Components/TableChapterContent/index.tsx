@@ -1,69 +1,68 @@
 import { IconOrderByOld, IconOrderByRecent } from '../../assets/icons';
 import style from './style.module.css';
-import { usePagination } from '../../Hook/usePagination';
-import { Link } from '../../layout/Link';
 import { INovelChapter } from '@/types/novel';
+import { TableChapterList } from '../TableChapterList';
+import { TableChapterPagination } from '../TableChapterPagination';
+import { useEffect, useState } from 'react';
+
 
 interface TableChapterContentProps {
   novelslug: string,
   chapters: INovelChapter[];
 }
 
+const ORDER_TYPES = {
+  NEWEST: 'newest',
+  OLDEST: 'oldest'
+}
+
 export const TableChapterContent = ({
   novelslug,
-  chapters: chaptersData
+  chapters: chapterList
 }: TableChapterContentProps) => {
-  const {
-    changePage,
-    chapters,
-    order,
-    toggleOrder,
-    currentPage,
-    lastPage,
-    pages } = usePagination({ chapters: chaptersData })
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [allPages, setAllPages] = useState([] as INovelChapter[])
+  const [page, setPage] = useState([] as INovelChapter[]);
+  const [order, setOrder] = useState(ORDER_TYPES.OLDEST)
+
+  // Create Copy of chapters for ordering
+  useEffect(() => {
+    if (chapterList && chapterList.length !== 0) {
+      setAllPages(chapterList)
+    }
+  }, [chapterList])
+
+  // Slice only visible chapters for current page list
+  useEffect(() => {
+    if (allPages && allPages.length !== 0) {
+      setPage(allPages?.slice((currentPage * 10) - 10, (currentPage * 10)))
+    }
+  }, [allPages, order, currentPage])
+
+  function toggleOrder() {
+    setOrder(prevOrder => (prevOrder === ORDER_TYPES.NEWEST ? ORDER_TYPES.OLDEST : ORDER_TYPES.NEWEST));
+    setAllPages(allPages.reverse())
+  }
 
   return (
     <div className={style.chaperList}>
       <div className={style.header}>
         <h3>Capítulos</h3>
         <button onClick={toggleOrder}>
-          {order === 'oldest' && <IconOrderByOld />}
-          {order === 'newest' && <IconOrderByRecent />}
+          {order === ORDER_TYPES.OLDEST && <IconOrderByOld />}
+          {order === ORDER_TYPES.NEWEST && <IconOrderByRecent />}
         </button>
       </div>
-      <ul>
-        {chaptersData && order && chapters.map(chapter => {
-          return (
-            <li key={chapter.title}>
-              <Link to={`/novel/${novelslug}/chapter/${chapter.id}`}>{chapter.title}</Link>
-              <span>10h</span>
-            </li>
-          )
-        })}
 
-      </ul>
-      {chaptersData && chaptersData.length > 10 && <div className={style.pagination}>
-        {
-          chaptersData && pages.map((i, index) => {
-            return (
-              <span
-                key={index}
-                data-active={i === currentPage ? "true" : "false"}
-                onClick={() => changePage(i, index)}
-                className={style.item}
-              >
-                {i}
-              </span>)
-          })
+      <TableChapterList chapters={page} novelSlug={novelslug} />
 
-        }
-        <span className={style.item}>...</span>
-        <span className={style.item}
-          data-active={lastPage === currentPage ? "true" : "false"}
-          onClick={() => changePage(lastPage, null)}>
-          {lastPage}
-        </span>
-      </div>}
+      {allPages && allPages.length > 10 && (
+        <TableChapterPagination
+          setPage={setCurrentPage}
+          totalCount={allPages.length}
+        />
+      )}
     </div>
   )
 }

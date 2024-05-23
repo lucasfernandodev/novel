@@ -2,6 +2,7 @@ export interface INovelChapter {
   id: string;
   title: string;
   position: string,
+  createdAt?: string
 }
 
 export interface INovel {
