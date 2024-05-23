@@ -10,8 +10,6 @@ export const Chapter = () => {
 
   const { chapterId } = useParams();
 
-  if(!chapterId) return redirect("/");
-
   const { data, isLoading } = useQuery<{ chapter: IChapter }>(
     ['chapter', chapterId], async () => await chapterApi.get({ chapterId: chapterId as string })
   )

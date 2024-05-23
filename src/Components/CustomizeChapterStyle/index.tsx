@@ -1,13 +1,13 @@
 import { FC, HTMLAttributes, useEffect, useState } from 'react';
 import style from './style.module.css';
 import { Select } from '../Select';
-import { IChapterTextStyle } from '@/Hook/useChapterTextStyle';
+import { ITextStyleConfig } from '@/types/text-style-config';
 
 interface IProps extends HTMLAttributes<HTMLDivElement> {
-  config: IChapterTextStyle,
+  config: ITextStyleConfig,
   closeMenu: (value: boolean) => void,
-  changeConfig: (value: IChapterTextStyle) => void
-  changeConfigPreview: (value: IChapterTextStyle) => void
+  changeConfig: (value: ITextStyleConfig) => void
+  changeConfigPreview: (value: ITextStyleConfig) => void
 }
 
 
@@ -18,7 +18,7 @@ export const CustomizeChapterStyle: FC<IProps> = ({
   config
 }) => {
 
-  const [currentConfig, setCurrentconfig] = useState<IChapterTextStyle>(config);
+  const [currentConfig, setCurrentconfig] = useState<ITextStyleConfig>(config);
 
   useEffect(() => {
     if (currentConfig !== config) {
